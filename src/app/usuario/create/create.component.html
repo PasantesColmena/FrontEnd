@@ -1,0 +1,96 @@
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+<div>
+
+  <div class="d-flex justify-content-between">
+    <h4 class="text-center font-bold text-xl">Usuarios</h4>
+    <a href="#" routerLink="/" class="btn btn-primaryt">Regresar</a>
+  </div>
+
+
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+
+    <div class="mt-6 text-center">
+      <div class="col-md-6 ">
+        <label class="block mb-2 text-xs font-bold text-gray-700 uppercase" for="nom">Nombre:</label>
+        <input class="w-full p-2 border border-blue-400 rounded" formControlName="nom" id="nom" type="text">
+        <div *ngIf="f.nom.touched && f.nom.invalid" class="alert alert-danger">
+          <div *ngIf="f.nom.errors.required">*Nombre es Requerido.</div>
+          <div *ngIf="f.nom.errors.pattern">*El Nombre solo dede Contener Letras.</div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="mt-6 text-center">
+      <div class="col-md-6 ">
+        <label class="block mb-2 text-xs font-bold text-gray-700 uppercase" for="ced">Cedula:</label>
+        <input class="w-full p-2 border border-blue-400 rounded" formControlName="ced" id="ced" type="text">
+        <div *ngIf="f.ced.touched && f.ced.invalid" class="alert alert-danger">
+          <div *ngIf="f.ced.errors.required">*Cedula es Requerida.</div>
+          <div *ngIf="f.ced.errors.pattern">*La Cedula solo Contiene Numeros.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-6 text-center">
+      <div class="col-md-6 ">
+        <label class="block mb-2 text-xs font-bold text-gray-700 uppercase" for="num">Numero de Telefono:</label>
+        <input class="w-full p-2 border border-blue-400 rounded" formControlName="num" id="num" type="text">
+        <div *ngIf="f.num.touched && f.num.invalid" class="alert alert-danger">
+          <div *ngIf="f.num.errors.required">*Numero de Telefono es Requerida.</div>
+          <div *ngIf="f.num.errors.pattern">*El Numero de Telefono solo Contiene Numeros</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-6 text-center">
+      <div class="col-md-6 ">
+        <label class="block mb-2 text-xs font-bold text-gray-700 uppercase" for="cor">Correo:</label>
+        <input class="w-full p-2 border border-blue-400 rounded" formControlName="cor" id="cor" type="text">
+        <div *ngIf="f.cor.touched && f.cor.invalid" class="alert alert-danger">
+          <div *ngIf="f.cor.errors.required">*Email is required.</div>
+          <div *ngIf="f.cor.errors.cor">*El Email debe ser una direccion de correo.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-6 text-center">
+      <div class="col-md-6 ">
+        <label class="block mb-2 text-xs font-bold text-gray-700 uppercase" for="dir">Direccion</label>
+        <input class="w-full p-2 border border-blue-400 rounded" formControlName="dir" id="dir" type="text">
+        <div *ngIf="f.dir.touched && f.dir.invalid" class="alert alert-danger">
+          <div *ngIf="f.dir.errors.required">*Direccion es Requerida.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-6 text-center">
+      <div class="col-md-6 ">
+        <label class="block mb-2 text-xs font-bold text-gray-700 uppercase" for="fec_nac">Fecha Nacimiento:</label>
+        <input class="w-full p-2 border border-blue-400 rounded" formControlName="fec_nac" id="fec_nac" type="text">
+        <div *ngIf="f.fec_nac.touched && f.fec_nac.invalid" class="alert alert-danger">
+          <div *ngIf="f.fec_nac.errors.required">*Fecha Nacimiento es requerido.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-6 text-center">
+      <div class="col-md-6 ">
+        <label class="block mb-2 text-xs font-bold text-gray-700 uppercase" for="fot_per">Foto Perfil:</label>
+        <input class="w-full p-2 border border-blue-400 rounded" formControlName="fot_per" id="fot_per" type="file">
+        <div *ngIf="f.fot_per.touched && f.fot_per.invalid" class="alert alert-danger">
+          <div *ngIf="f.fot_per.errors.required">*Foto Perfil es requerido.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <button class="btn btn-primary" type="submit">Subir</button>
+  </form>
+</div>
