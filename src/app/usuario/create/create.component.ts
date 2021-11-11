@@ -12,10 +12,9 @@ export class CreateComponent implements OnInit {
 
   form: FormGroup
 
-  constructor(
-    public usuarioService: UsuarioService,
-    private router: Router
-  ) { }
+  constructor( public usuarioService: UsuarioService, private router: Router)
+  {
+  }
 
   ngOnInit(): void {
 
@@ -25,8 +24,7 @@ export class CreateComponent implements OnInit {
       num: new FormControl('', [ Validators.required, Validators.pattern("^[0-9]*$") ]),
       cor: new FormControl('', [ Validators.required, Validators.email ]),
       dir: new FormControl('', [ Validators.required, Validators.pattern('^[0-9a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ \-\']+') ]),
-      fec_nac: new FormControl('', [ Validators.required]),
-      fot_per: new FormControl('', [ Validators.required])
+      edad: new FormControl('', [ Validators.required, Validators.pattern("^[0-9]*$") ])
     });
   }
   get f(){
@@ -36,7 +34,7 @@ export class CreateComponent implements OnInit {
     console.log(this.form.value);
     this.usuarioService.create(this.form.value).subscribe(res => {
          console.log('Usuario creado correctamente!');
-         this.router.navigateByUrl('usuarios/create');
+         this.router.navigateByUrl('usuario/reporte');
     })
   }
 

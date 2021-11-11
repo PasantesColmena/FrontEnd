@@ -1,0 +1,30 @@
+.content {
+
+  height: auto;
+  width: 95%;
+  margin-top: 100px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 25px;
+}
+
+.item {
+  background-color: #fae6b1;
+  height: 300px;
+  width: 23,4%;
+  margin: 20px;
+  float: left;
+  padding: 20px;
+}
+
+.item-text {
+  text-align: center;
+  color: #31525B;
+  font-weight: bold;
+}
+
+.item-title-name {
+  text-align: center;
+  color: #ffa101;
+
+}

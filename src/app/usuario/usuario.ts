@@ -5,6 +5,6 @@ export interface Usuario {
   num: string;
   cor: string;
   dir: string;
-  fec_nac: Date;
+  edad: number;
   fot_per: Blob;
 }

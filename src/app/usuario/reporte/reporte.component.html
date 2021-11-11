@@ -1,1 +1,22 @@
-<p>reporte works!</p>
+<br>
+<div>
+
+  <div *ngFor="let usuario of usuarios">
+    <div class="item">
+      <!-- Nombre -->
+      <h1 class="item-title-name">{{ usuario.nom }}</h1>
+      <!-- Cedula -->
+      <p class="item-text">{{ usuario.ced }}</p>
+      <!-- Telefono -->
+      <p class="item-text">{{ usuario.num }}</p>
+      <!-- Correo -->
+      <p class="item-text">{{ usuario.cor }}</p>
+      <!-- Direccion -->
+      <p class="item-text">{{ usuario.dir }}</p>
+      <!-- Edad -->
+      <p class="item-text">{{ usuario.edad }}</p>
+
+      <button type="button" (click)="deleteUsuario(usuario.ced)" class="btn btn-danger">Delete</button>
+    </div>
+  </div>
+</div>

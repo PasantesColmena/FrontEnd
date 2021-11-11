@@ -6,6 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+//Inicio Serviciosios
+import { CargarScriptsService } from "./cargar-scripts.service";
+//Fin Servicios
+
 import { UsuarioModule } from './usuario/usuario.module';
 
 
@@ -21,7 +25,7 @@ import { UsuarioModule } from './usuario/usuario.module';
     HttpClientModule,
     NgbModule
   ],
-  providers: [],
+  providers: [CargarScriptsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
