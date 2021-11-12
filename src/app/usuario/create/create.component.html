@@ -4,7 +4,7 @@
 
     <!-- Nombre -->
     <div class="field half required px-1">
-      <label class='label' for="nom">Nombre</label>
+      <label class='label-atr' for="nom">Nombre</label>
       <input class='text-input' formControlName="nom" id="nom" type="text" placeholder="Juan Perez">
       <div *ngIf="f.nom.touched && f.nom.invalid" class="alert alert-danger">
         <div *ngIf="f.nom.errors.required">Nombre es requerido.</div>
@@ -14,7 +14,7 @@
 
     <!-- Cedula -->
     <div class="field half required px-1">
-      <label class='label' for="ced">Cedula</label>
+      <label class='label-atr' for="ced">Cedula</label>
       <input class='text-input' formControlName="ced" id="ced" type="text" placeholder="0-0000-0000">
       <div *ngIf="f.ced.touched && f.ced.invalid" class="alert alert-danger">
         <div *ngIf="f.ced.errors.required">Cedula es requerida.</div>
@@ -24,7 +24,7 @@
 
     <!-- Telefono -->
     <div class="field half required px-1">
-      <label class='label' for="num">Numero de Telefono</label>
+      <label class='label-atr' for="num">Numero de Telefono</label>
       <input class='text-input' formControlName="num" id="num" type="text" placeholder="0000-0000">
       <div *ngIf="f.num.touched && f.num.invalid" class="alert alert-danger">
         <div *ngIf="f.num.errors.required">Telefono es requerido.</div>
@@ -34,7 +34,7 @@
 
     <!-- Correo -->
     <div class="field half required px-1">
-      <label class='label' for="cor">Correo</label>
+      <label class='label-atr' for="cor">Correo</label>
       <input class='text-input' formControlName="cor" id="cor" type="text" placeholder="example@gmail.com">
       <div *ngIf="f.cor.touched && f.cor.invalid" class="alert alert-danger">
         <div *ngIf="f.cor.errors.required">Correo es requerido.</div>
@@ -44,7 +44,7 @@
 
     <!-- Direccion -->
     <div class="field half required px-1">
-      <label class='label' for="dir">Direccion</label>
+      <label class='label-atr' for="dir">Direccion</label>
       <input class='text-input' formControlName="dir" id="dir" type="text"  placeholder="Provincia, Canton, etc">
       <div *ngIf="f.dir.touched && f.dir.invalid" class="alert alert-danger">
         <div *ngIf="f.dir.errors.required">Direccion es requerida.</div>
@@ -53,7 +53,7 @@
 
     <!-- Edad -->
     <div class="field half required px-1">
-      <label class='label' for="edad">Edad</label>
+      <label class='label-atr' for="edad">Edad</label>
       <input class='text-input' formControlName="edad" id="edad" type="text" placeholder="18">
       <div *ngIf="f.edad.touched && f.edad.invalid" class="alert alert-danger">
         <div *ngIf="f.edad.errors.required">Edad es requerida.</div>
