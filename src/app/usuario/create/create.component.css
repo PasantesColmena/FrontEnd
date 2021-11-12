@@ -5,19 +5,17 @@
 alert-danger{
   position: absolute;
   width: 100%;
+}
+
+
+.title {
+  font-size: 100px;
+  text-align: center;
+  color: #072a40;
+  text-shadow: #18b7be 6px 0px;
+  margin-bottom: 80px;
 
 }
-.title {
-    align-items: center;
-    align-content: center;
-    text-align: center;
-    font-size: 100px;
-    margin-bottom: 50px;
-    color: antiquewhite;
-    font-weight: bold;
-    margin-top: 35px;
-
-  }
 
   input[type="file"] {
     display: none;
@@ -59,7 +57,7 @@ alert-danger{
 
   .form .label {
     font-weight: bold;
-    color: white;
+    color: #072a40;
     padding-top: 0;
     padding-left: 0;
     letter-spacing: 0.025em;
@@ -139,7 +137,7 @@ alert-danger{
     font: inherit;
     line-height: normal;
     cursor: pointer;
-    background: #E8474C;
+    background: #072a40;
     color: white;
     font-weight: bold;
     width: auto;
@@ -229,7 +227,8 @@ alert-danger{
     z-index: 0;
     width: 0;
     pointer-events: none;
-    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    background: rgba(212, 0, 0, 0.15);
     transition: top 0.2s, left 0.2s, width 0.2s;
     -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
@@ -238,4 +237,10 @@ alert-danger{
     transform-origin: 0 0;
   }
 
+.label-atr {
 
+  font-size: 25px;
+  font-weight: bold;
+  color: #feffff;
+
+}

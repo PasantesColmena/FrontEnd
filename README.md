@@ -1,27 +1,36 @@
-# Angularp
+## Notas
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.3.
+Ejecutar el frontend y backend simultaneamente para que funcione toda la aplicacion web.
 
-## Development server
+# Angular
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) versión 10.2.3.
 
-## Code scaffolding
+## Instalación de paquetes
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Ejecute `npm install` y no ejecute `npm audit fix --force` ya que va a fallar.
 
-## Build
+## Servidor de desarrollo 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Ejecute `ng serve` para poner en funcionamiento el servidor. Ingrese a `http://localhost:4200/`. La aplicación web se recargará automáticamente si cambia alguno de los archivos de origen.
 
-## Running unit tests
+## Andamio para el código
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Ejecute `ng generate component component-name` para generar un nuevo componente. También puede ejecutar `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Running end-to-end tests
+## Construcción
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Ejecute `ng build` Para construir el proyecto. Los artefactos para la construcción se almacenarán en el directorio `dist/`. Use `--prod` lo cual es una bandera para una construcción de producción.
 
-## Further help
+## Ejecutando unidades de prueba
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Ejecute `ng test` para ejecutar las pruebas a través de [Karma](https://karma-Ejecutener.github.io).
+
+## Ejecutando pruebas de extremo a extremo 
+
+Ejecute `ng e2e` para ejecutar las pruebas de extremo a extremo a través de [Protractor](http://www.protractortest.org/).
+
+## Ayuda adicional
+
+Para obtener más ayuda en el CLI de Angular ejecute `ng help` o rediríjase a la página [Angular CLI Overview and Command Reference](https://angular.io/cli).
+

@@ -1,14 +1,11 @@
-:root {
-  --primColor: #000000;
-  --secoColor: #ffffff;
-  --cornerRad: 4px;
+
+
+main{
+  margin-top: 40px;
 }
 
-body {
-  background-color: var(--primColor);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-}
+/* NavBar Btn*/
+
 details {
   position: absolute;
 }
@@ -77,14 +74,16 @@ details[open] summary::after {
   content: "";
 }
 
+/* NavBar Menu */
+
 .menu {
   height: 0;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  border-radius: var(--cornerRad);
-  background-color: var(--primColor);
-  box-shadow: 0 30px 12px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  background-color: #18b7be;
+  box-shadow: 0px 12px 12px 0px rgba(0, 0, 0, 0.2);
   margin-top: 40px;
   margin-left: 30PX;
   display: flex;
@@ -97,7 +96,8 @@ details[open] summary::after {
 .menu a {
   padding: 12px 24px;
   margin: 0 16px;
-  color: var(--secoColor);
+  color: #f9f7f0;
+  font-weight: bold;
   border-bottom: 2px solid rgba(0, 0, 0, 0.1);
   text-decoration: none;
   text-align: center;
@@ -115,6 +115,8 @@ details[open] summary::after {
 .menu a:hover {
   filter: brightness(200%);
 }
+
+/* Estilo NavBar Btn Menu */
 
 details::before {
   color: var(--secoColor);
@@ -134,7 +136,7 @@ details[open]::before {
     height: 0;
   }
   100% {
-    height: 100px;
+    height: 113px;
   }
 }
 
@@ -143,7 +145,7 @@ details[open]::before {
     height: 0;
   }
   100% {
-    height: 100px;
+    height: 113px;
   }
 }
 
