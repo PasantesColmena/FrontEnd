@@ -1,6 +1,10 @@
-# Angularp
+# Angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.3.
+
+## Packages Install
+
+Run `npm install` and don't run `npm audit fix --force` is going to fail.
 
 ## Development server
 
