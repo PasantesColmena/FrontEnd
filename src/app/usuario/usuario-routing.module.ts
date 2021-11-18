@@ -5,8 +5,8 @@ import { CreateComponent } from './create/create.component';
 import { ReporteComponent } from './reporte/reporte.component';
 
 const routes: Routes = [
-  { path: '', redirectTo : 'usuario/reporte', pathMatch: 'full'},
-  { path: 'usuario', redirectTo : 'usuario/create', pathMatch: 'full'},
+  { path: '', redirectTo : 'usuario/create', pathMatch: 'full'},
+  // { path: 'usuario', redirectTo : 'usuario/create', pathMatch: 'full'},
   { path: 'usuario/create', component: CreateComponent },
   { path: 'usuario/reporte', component: ReporteComponent }
 ];

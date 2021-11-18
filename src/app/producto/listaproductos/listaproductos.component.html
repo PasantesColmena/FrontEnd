@@ -1,0 +1,27 @@
+<div class="list-container">
+  <h1 class="title">Productos</h1>
+    <div *ngFor="let product of products">
+      <div class="list-item">
+        <!-- Image -->
+        <div class="item-image">
+        </div>
+        <!-- Nombre -->
+        <div class="item-title-box">
+          <h1 class="item-title-name">{{product.name}}</h1>
+        </div>
+        <!-- Descripción -->
+        <h1 class="item-atr">Descripción: </h1>
+        <p class="item-text">{{product.description}}</p>
+        <!-- Precio -->
+        <h1 class="item-atr">Precio: </h1>
+        <p class="item-text"> ₡{{product.price}} </p>
+        <!-- Boton -->
+        <button type="button" class="btn" (click)="addToCart(product)">Agregar</button>
+      </div>
+    </div>
+</div>
+
+
+
+
+
