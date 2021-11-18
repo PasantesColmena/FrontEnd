@@ -11,12 +11,18 @@ import { CargarScriptsService } from "./cargar-scripts.service";
 //Fin Servicios
 
 import { UsuarioModule } from './usuario/usuario.module';
+import { ListaproductosComponent } from './listaproductos/listaproductos.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ListaproductosComponent,
+    NavbarComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
