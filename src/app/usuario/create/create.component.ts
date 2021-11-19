@@ -22,9 +22,7 @@ export class CreateComponent implements OnInit {
       nom:  new FormControl('', [ Validators.required, Validators.pattern('^[a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ \-\']+') ]),
       ced: new FormControl('', [ Validators.required, Validators.pattern("^[0-9]*$") ]),
       num: new FormControl('', [ Validators.required, Validators.pattern("^[0-9]*$") ]),
-      cor: new FormControl('', [ Validators.required, Validators.email ]),
-      dir: new FormControl('', [ Validators.required, Validators.pattern('^[0-9a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ \-\']+') ]),
-      edad: new FormControl('', [ Validators.required, Validators.pattern("^[0-9]*$") ])
+      dir: new FormControl('', [ Validators.required, Validators.pattern('^[0-9a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ \-\']+') ])
     });
   }
   get f(){
@@ -34,7 +32,7 @@ export class CreateComponent implements OnInit {
     console.log(this.form.value);
     this.usuarioService.create(this.form.value).subscribe(res => {
          console.log('Usuario creado correctamente!');
-         this.router.navigateByUrl('usuario/reporte');
+         this.router.navigateByUrl('producto/lista');
     })
   }
 

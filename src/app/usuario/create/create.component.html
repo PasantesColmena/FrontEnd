@@ -3,7 +3,7 @@
   <form [formGroup]="form" class='form' (ngSubmit)="submit()">
 
     <!-- Nombre -->
-    <div class="field half required px-1">
+    <div class="field required px-1">
       <label class='label-atr' for="nom">Nombre</label>
       <input class='text-input' formControlName="nom" id="nom" type="text" placeholder="Juan Perez">
       <div *ngIf="f.nom.touched && f.nom.invalid" class="alert alert-danger">
@@ -13,7 +13,7 @@
     </div>
 
     <!-- Cedula -->
-    <div class="field half required px-1">
+    <div class="field required px-1">
       <label class='label-atr' for="ced">Cedula</label>
       <input class='text-input' formControlName="ced" id="ced" type="text" placeholder="000000000">
       <div *ngIf="f.ced.touched && f.ced.invalid" class="alert alert-danger">
@@ -23,7 +23,7 @@
     </div>
 
     <!-- Telefono -->
-    <div class="field half required px-1">
+    <div class="field required px-1">
       <label class='label-atr' for="num">Numero de Telefono</label>
       <input class='text-input' formControlName="num" id="num" type="text" placeholder="00000000">
       <div *ngIf="f.num.touched && f.num.invalid" class="alert alert-danger">
@@ -32,31 +32,12 @@
       </div>
     </div>
 
-    <!-- Correo -->
-    <div class="field half required px-1">
-      <label class='label-atr' for="cor">Correo</label>
-      <input class='text-input' formControlName="cor" id="cor" type="text" placeholder="example@gmail.com">
-      <div *ngIf="f.cor.touched && f.cor.invalid" class="alert alert-danger">
-        <div *ngIf="f.cor.errors.required">Correo es requerido.</div>
-        <div *ngIf="f.cor.errors.cor">El correo debe ser una direccion de correo.</div>
-      </div>
-    </div>
-
     <!-- Direccion -->
-    <div class="field half required px-1">
+    <div class="field required px-1">
       <label class='label-atr' for="dir">Direccion</label>
       <input class='text-input' formControlName="dir" id="dir" type="text"  placeholder="Provincia, Canton, etc">
       <div *ngIf="f.dir.touched && f.dir.invalid" class="alert alert-danger">
         <div *ngIf="f.dir.errors.required">Direccion es requerida.</div>
-      </div>
-    </div>
-
-    <!-- Edad -->
-    <div class="field half required px-1">
-      <label class='label-atr' for="edad">Edad</label>
-      <input class='text-input' formControlName="edad" id="edad" type="text" placeholder="18">
-      <div *ngIf="f.edad.touched && f.edad.invalid" class="alert alert-danger">
-        <div *ngIf="f.edad.errors.required">Edad es requerida.</div>
       </div>
     </div>
 
