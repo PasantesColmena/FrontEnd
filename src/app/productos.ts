@@ -4,3 +4,4 @@ export interface Producto {
   desc: number;
   pre_uni: string;
 }
+

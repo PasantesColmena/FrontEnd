@@ -12,9 +12,9 @@ import { CartService } from '../../cart.service';
   styleUrls: ['./listaproductos.component.css']
 })
 
-export class ListaproductosComponent{
+export class ListaproductosComponent implements OnInit{
   productos: Producto[] = [];
-
+  item: Producto | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,15 +22,23 @@ export class ListaproductosComponent{
     public productoService: ProductoService
   ) { }
 
-  ngOnInit(): void {
-    this.productoService.getAll().subscribe((data: Producto[])=>{
-      this.productos = data;
-      console.log(this.productos);
-    })
+  addToCart(item: Producto) {
+    this.cartService.addToCart(item);
+    // window.alert('Your product has been added to the cart!');
   }
 
-  addToCart(product : Producto) {
-    this.cartService.addToCart(product);
-    window.alert('Su producto a sido añadido al carrito!');
+  ngOnInit(): void {
+
+    /*Consigue el id de la ruta*/
+    const routeParams = this.route.snapshot.paramMap;
+    const productIdFromRoute = Number(routeParams.get('productoId'));
+
+    /*Productos Lista*/
+    this.productoService.getAll().subscribe((data: Producto[])=>{
+      this.productos = data;
+      this.item = this.productos.find(
+        (item) => item.id === productIdFromRoute
+      );
+    })
   }
 }

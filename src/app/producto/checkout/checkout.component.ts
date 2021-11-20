@@ -1,6 +1,4 @@
-import { Component } from '@angular/core';
-
-
+import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../cart.service';
 
 @Component({
@@ -8,10 +6,11 @@ import { CartService } from '../../cart.service';
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.css']
 })
-export class CheckoutComponent {
 
+export class CheckoutComponent  {
   items = this.cartService.getItems();
+
   constructor(
-    private cartService: CartService
-  ) { }
+    private cartService: CartService,
+  ) {}
 }

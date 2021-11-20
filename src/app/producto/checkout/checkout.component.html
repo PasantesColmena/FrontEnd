@@ -1,17 +1,22 @@
-
-<div class="check-container">
-  <div class="check-container-half">
-    <div *ngFor="let number of [0,1,2,3,4,5,6,7,8]">
-      <div class="item-container">
-        <div class="item-container-half">
-          <p class="item-name">Manzana</p>
-        </div>
-        <div class="item-container-half">
-          <p class="item-price">$2.99</p>
-        </div>
+<div class="atr-container">
+  <div class="atr-container-half">
+    <h1 class="atr-title">Recibo:</h1>
+  </div>
+  <div class="atr-container-half">
+    <div class="atr-item-container">
+      <div class="atr-item-half">
+        <p class="atr-text"> Nombre </p>
+      </div>
+      <div class="atr-item-half">
+        <p class="atr-text"> Cantidad </p>
+      </div>
+      <div class="atr-item-half">
+        <p class="atr-text"> Precio </p>
       </div>
     </div>
   </div>
+</div>
+<div class="check-container">
   <div class="check-container-half">
     <div class="info">
 
@@ -20,8 +25,27 @@
       Comprar
     </button>
   </div>
+  <div class="check-container-half">
+    <div *ngFor="let item of items">
+      <div class="item-container">
+        <div class="item-container-half">
+          <p class="item-name">{{item.nom}}</p>
+        </div>
+        <div class="item-container-half">
+          <p class="item-cant">1</p>
+        </div>
+        <div class="item-container-half">
+          <p class="item-price">{{ item.pre_uni }}</p>
+        </div>
+        <div class="item-container-half-btn">
+          <button class="btn-delete">
+            X
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
 
 
 
