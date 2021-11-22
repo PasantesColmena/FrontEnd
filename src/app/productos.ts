@@ -3,5 +3,6 @@ export interface Producto {
   nom: string;
   desc: number;
   pre_uni: string;
+  cant: number;
 }
 

@@ -32,13 +32,17 @@
           <p class="item-name">{{item.nom}}</p>
         </div>
         <div class="item-container-half">
-          <p class="item-cant">1</p>
+          <p class="item-cant">{{item.cant}}</p>
         </div>
         <div class="item-container-half">
-          <p class="item-price">{{ item.pre_uni }}</p>
+          <p class="item-price">{{ item.pre_uni * item.cant }}</p>
         </div>
         <div class="item-container-half-btn">
-          <button class="btn-delete">
+          <button
+            class="btn-delete"
+            type="button"
+            (click)="deleteFromCart(item)"
+          >
             X
           </button>
         </div>

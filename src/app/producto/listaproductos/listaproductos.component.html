@@ -34,11 +34,30 @@
         <h1 class="item-atr">Categoria: </h1>
         <p class="item-text"> {{producto.categoria.nom}} </p>
         <!-- Boton -->
-        <button type="button" class="btn"
-          [routerLink]="['/producto/lista/', producto.id]"
-          (click)="addToCart(producto)">
-          Agregar
-        </button>
+        <div class="btn-container">
+          <button type="button" class="btn-agregar"
+            [routerLink]="['/producto/lista/', producto.id]"
+            (click)="addToCart(producto)"
+            (click)="acumularTotalPrecio(producto.pre_uni)"
+            (click)="acumularTotalCant(producto.cant)">
+            Agregar
+          </button>
+          <div class="btn-container-cantidad">
+            <div class="btn-max-container">
+              <button class="btn-max" type="button" (click)="aumentar(producto)">
+                +
+              </button>
+            </div>
+            <div class="cant-label-container">
+              <p class="cant-label">{{producto.cant}}</p>
+            </div>
+            <div class="btn-min-container">
+              <button class="btn-min" type="button" (click)="disminuir(producto)">
+                -
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 </div>

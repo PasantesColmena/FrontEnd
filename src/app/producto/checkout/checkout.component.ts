@@ -7,10 +7,17 @@ import { CartService } from '../../cart.service';
   styleUrls: ['./checkout.component.css']
 })
 
-export class CheckoutComponent  {
+export class CheckoutComponent {
   items = this.cartService.getItems();
+  item = this.items[1];
 
   constructor(
     private cartService: CartService,
   ) {}
+
+  deleteFromCart(item) {
+    this.cartService.deleteFromCart(item);
+  }
+
+
 }

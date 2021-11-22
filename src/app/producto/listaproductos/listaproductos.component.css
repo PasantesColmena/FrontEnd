@@ -66,13 +66,82 @@ img {
   margin-bottom: 30px;
 }
 
-.btn {
+/*Buttons Under*/
+
+.btn-container {
+  width: 100%;
+  height: 70px;
+}
+
+.btn-agregar {
   font-weight: bold;
   margin-top: 20px;
-  width: 100%;
+  height: 80%;
+  width: 40%;
+  margin-right: 30px;
   background-color: #64c4af;
   color: white;
+  float: left;
+  border-radius: 30px;
+  border: #072a40;
 }
+
+.btn-container-cantidad {
+  width: 50%;
+  margin-top: 20px;
+  height: 80%;
+  float: left;
+  padding-top: 10px;
+}
+
+.btn-max-container {
+  width: 33%;
+  height: 40px;
+  float: left;
+
+}
+
+.btn-min-container {
+  width: 33%;
+  height: 40px;
+  float: left;
+}
+
+.cant-label-container {
+  width: 33%;
+  height: 40px;
+  float: left;
+}
+
+.cant-label {
+  color: white;
+  font-size: 23px;
+}
+
+.btn-max {
+  border-radius: 50%;
+  border: none;
+  height: 40px;
+  width: 40px;
+  background-color: #18b7be;
+  color: white;
+  font-weight: bold;
+  font-size: 22px;
+  padding-bottom: 3px;
+}
+
+.btn-min {
+  border-radius: 50%;
+  border: none;
+  height: 40px;
+  width: 40px;
+  background-color: #18b7be;
+  color: white;
+  font-weight: bold;
+  font-size: 23px;
+  padding-bottom: 3px;
+}
+
 
 .title {
   font-size: 100px;

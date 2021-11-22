@@ -24,8 +24,38 @@ export class ListaproductosComponent implements OnInit{
 
   addToCart(item: Producto) {
     this.cartService.addToCart(item);
-    // window.alert('Your product has been added to the cart!');
+    window.alert('Your product has been added to the cart!');
   }
+
+  acumularTotalPrecio(price) {
+    this.cartService.acumPrecio(price);
+  }
+
+  acumularTotalCant(cant) {
+    this.cartService.acumPrecio(cant);
+  }
+
+
+
+  disminuir(item: any) {
+    if (item.cant == undefined){
+              item.cant = 0;
+        } else if(item.cant != undefined && item.cant >0){
+              --item.cant;
+        }
+    }
+
+  aumentar(item: any) {
+    if (item.cant == undefined){
+          item.cant = 1;
+    } else if(item.cant != undefined){
+          ++item.cant;
+    }
+  }
+
+
+
+
 
   ngOnInit(): void {
 
