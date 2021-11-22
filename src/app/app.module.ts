@@ -6,10 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-//Inicio Serviciosios
-import { CargarScriptsService } from "./cargar-scripts.service";
-//Fin Servicios
-
 import { UsuarioModule } from './usuario/usuario.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProductoModule } from './producto/producto.module';
@@ -18,7 +14,8 @@ import { ProductoModule } from './producto/producto.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +25,6 @@ import { ProductoModule } from './producto/producto.module';
     HttpClientModule,
     NgbModule
   ],
-  providers: [CargarScriptsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

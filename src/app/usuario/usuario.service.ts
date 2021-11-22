@@ -5,6 +5,7 @@ import {  Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { Usuario } from './usuario';
+// import { Factura } from
 
 @Injectable({
   providedIn: 'root'
@@ -28,12 +29,14 @@ export class UsuarioService {
     )
   }
 
-  create(usuario): Observable<Usuario> {
+  createUsuario(usuario): Observable<Usuario> {
     return this.httpClient.post<Usuario>(this.apiURL, JSON.stringify(usuario), this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
   }
+
+
 
   delete(ced){
     return this.httpClient.delete<Usuario>(this.apiURL + ced, this.httpOptions)

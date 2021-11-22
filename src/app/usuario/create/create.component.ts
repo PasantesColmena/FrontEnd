@@ -3,6 +3,9 @@ import { UsuarioService } from '../usuario.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
+import { CartService } from 'src/app/cart.service';
+import { FacturasService } from 'src/app/facturas.service';
+
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
@@ -12,7 +15,10 @@ export class CreateComponent implements OnInit {
 
   form: FormGroup
 
-  constructor( public usuarioService: UsuarioService, private router: Router)
+  constructor( public usuarioService: UsuarioService,
+    private router: Router,
+    private cartService: CartService,
+    private facturaService: FacturasService)
   {
   }
 
@@ -30,10 +36,14 @@ export class CreateComponent implements OnInit {
   }
   submit(){
     console.log(this.form.value);
-    this.usuarioService.create(this.form.value).subscribe(res => {
+    this.usuarioService.createUsuario(this.form.value).subscribe(res => {
          console.log('Usuario creado correctamente!');
-         this.router.navigateByUrl('producto/lista');
     })
+    this.facturaService.createFactura(this.form.value).subscribe(res => {
+      console.log('Usuario creado correctamente!');
+ })
+
+
   }
 
 }

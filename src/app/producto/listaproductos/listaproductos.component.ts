@@ -39,7 +39,7 @@ export class ListaproductosComponent implements OnInit {
   }
 
   acumularTotalCant(cant) {
-    this.cartService.acumPrecio(cant);
+    this.cartService.acumCant(cant);
   }
 
 
@@ -66,7 +66,11 @@ export class ListaproductosComponent implements OnInit {
     })
   }
 
-
+  getAll() {
+    this.productoService.getAll().subscribe((datap: Producto[]) => {
+      this.productos = datap;
+    })
+  }
 
 
   ngOnInit(): void {

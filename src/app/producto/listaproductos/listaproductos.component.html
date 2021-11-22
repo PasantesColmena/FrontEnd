@@ -1,6 +1,3 @@
-<app-navbar></app-navbar>
-
-<main>
 <div class="list-container">
   <h1 class="title">Productos</h1>
   <div class="filter-container">
@@ -9,10 +6,10 @@
         Filtro
       </button>
       <div class="dropdown-content">
+        <a (click)="getAll()"> Todas </a>
         <div *ngFor="let categoria of categorias">
           <a (click)="getAllCat(categoria.id)">{{ categoria.nom }}</a>
         </div>
-
       </div>
     </div>
   </div>
@@ -40,7 +37,8 @@
       <!-- Boton -->
       <div class="btn-container">
         <button type="button" class="btn-agregar" [routerLink]="['/producto/lista/', producto.id]"
-          (click)="addToCart(producto)" (click)="acumularTotalPrecio(producto.pre_uni)"
+          (click)="addToCart(producto)"
+          (click)="acumularTotalPrecio(producto.pre_uni)"
           (click)="acumularTotalCant(producto.cant)">
           Agregar
         </button>
@@ -63,4 +61,3 @@
     </div>
   </div>
 </div>
-</main>
