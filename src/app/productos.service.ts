@@ -5,6 +5,7 @@ import {  Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { Producto } from './productos';
+import { Categorias } from './categorias';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,13 @@ export class ProductoService {
 
   getAll(): Observable<Producto[]> {
     return this.httpClient.get<Producto[]>(this.apiURL)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
+
+  getAllCat(id): Observable<Producto[]> {
+    return this.httpClient.get<Producto[]>(this.apiURL+id)
     .pipe(
       catchError(this.errorHandler)
     )

@@ -181,7 +181,7 @@ img {
 }
 
 .dropdown-content {
-  display: none;
+  display: block;
   position: absolute;
   background-color: #64c4af;
   min-width: 160px;

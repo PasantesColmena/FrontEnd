@@ -1,50 +1,52 @@
-<div>
-  <h1 class="title">Agenda</h1>
-  <form [formGroup]="form" class='form' (ngSubmit)="submit()">
+<main>
+  <div>
+    <h1 class="title">Usuario</h1>
+    <form [formGroup]="form" class='form' (ngSubmit)="submit()">
 
-    <!-- Nombre -->
-    <div class="field required px-1">
-      <label class='label-atr' for="nom">Nombre</label>
-      <input class='text-input' formControlName="nom" id="nom" type="text" placeholder="Juan Perez">
-      <div *ngIf="f.nom.touched && f.nom.invalid" class="alert alert-danger">
-        <div *ngIf="f.nom.errors.required">Nombre es requerido.</div>
-        <div *ngIf="f.nom.errors.pattern">El Nombre solo dede Contener Letras.</div>
+      <!-- Nombre -->
+      <div class="field required px-1">
+        <label class='label-atr' for="nom">Nombre</label>
+        <input class='text-input' formControlName="nom" id="nom" type="text" placeholder="Juan Perez">
+        <div *ngIf="f.nom.touched && f.nom.invalid" class="alert alert-danger">
+          <div *ngIf="f.nom.errors.required">Nombre es requerido.</div>
+          <div *ngIf="f.nom.errors.pattern">El Nombre solo dede Contener Letras.</div>
+        </div>
       </div>
-    </div>
 
-    <!-- Cedula -->
-    <div class="field required px-1">
-      <label class='label-atr' for="ced">Cedula</label>
-      <input class='text-input' formControlName="ced" id="ced" type="text" placeholder="000000000">
-      <div *ngIf="f.ced.touched && f.ced.invalid" class="alert alert-danger">
-        <div *ngIf="f.ced.errors.required">Cedula es requerida.</div>
-        <div *ngIf="f.ced.errors.pattern">La Cedula solo Contiene Numeros.</div>
+      <!-- Cedula -->
+      <div class="field required px-1">
+        <label class='label-atr' for="ced">Cedula</label>
+        <input class='text-input' formControlName="ced" id="ced" type="text" placeholder="000000000">
+        <div *ngIf="f.ced.touched && f.ced.invalid" class="alert alert-danger">
+          <div *ngIf="f.ced.errors.required">Cedula es requerida.</div>
+          <div *ngIf="f.ced.errors.pattern">La Cedula solo Contiene Numeros.</div>
+        </div>
       </div>
-    </div>
 
-    <!-- Telefono -->
-    <div class="field required px-1">
-      <label class='label-atr' for="num">Numero de Telefono</label>
-      <input class='text-input' formControlName="num" id="num" type="text" placeholder="00000000">
-      <div *ngIf="f.num.touched && f.num.invalid" class="alert alert-danger">
-        <div *ngIf="f.num.errors.required">Telefono es requerido.</div>
-        <div *ngIf="f.num.errors.pattern">El Numero de Telefono solo Contiene Numeros</div>
+      <!-- Telefono -->
+      <div class="field required px-1">
+        <label class='label-atr' for="num">Numero de Telefono</label>
+        <input class='text-input' formControlName="num" id="num" type="text" placeholder="00000000">
+        <div *ngIf="f.num.touched && f.num.invalid" class="alert alert-danger">
+          <div *ngIf="f.num.errors.required">Telefono es requerido.</div>
+          <div *ngIf="f.num.errors.pattern">El Numero de Telefono solo Contiene Numeros</div>
+        </div>
       </div>
-    </div>
 
-    <!-- Direccion -->
-    <div class="field required px-1">
-      <label class='label-atr' for="dir">Direccion</label>
-      <input class='text-input' formControlName="dir" id="dir" type="text"  placeholder="Provincia, Canton, etc">
-      <div *ngIf="f.dir.touched && f.dir.invalid" class="alert alert-danger">
-        <div *ngIf="f.dir.errors.required">Direccion es requerida.</div>
+      <!-- Direccion -->
+      <div class="field required px-1">
+        <label class='label-atr' for="dir">Direccion</label>
+        <input class='text-input' formControlName="dir" id="dir" type="text" placeholder="Provincia, Canton, etc">
+        <div *ngIf="f.dir.touched && f.dir.invalid" class="alert alert-danger">
+          <div *ngIf="f.dir.errors.required">Direccion es requerida.</div>
+        </div>
       </div>
-    </div>
 
-    <!-- Boton de subida -->
-    <div class="field required px-1">
-      <button class="button" type="submit" [disabled]="!form.valid">Registrar</button>
-    </div>
+      <!-- Boton de subida -->
+      <div class="field required px-1">
+        <button class="button" type="submit" [disabled]="!form.valid">Registrar</button>
+      </div>
 
-  </form>
-</div>
+    </form>
+  </div>
+</main>

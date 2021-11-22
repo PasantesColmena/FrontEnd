@@ -1,9 +1,11 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Producto } from '../../productos';
 import { ProductoService } from '../../productos.service';
 import { CartService } from '../../cart.service';
+import { CategoriaService } from '../../categorias.service';
+import { Categorias } from 'src/app/categorias';
 
 
 @Component({
@@ -12,14 +14,19 @@ import { CartService } from '../../cart.service';
   styleUrls: ['./listaproductos.component.css']
 })
 
-export class ListaproductosComponent implements OnInit{
+export class ListaproductosComponent implements OnInit {
   productos: Producto[] = [];
+  categorias: Categorias[] = [];
   item: Producto | undefined;
+  itemc: Categorias | undefined;
+
 
   constructor(
     private route: ActivatedRoute,
     private cartService: CartService,
-    public productoService: ProductoService
+    public productoService: ProductoService,
+    public categoriaService: CategoriaService,
+
   ) { }
 
   addToCart(item: Producto) {
@@ -38,21 +45,26 @@ export class ListaproductosComponent implements OnInit{
 
 
   disminuir(item: any) {
-    if (item.cant == undefined){
-              item.cant = 0;
-        } else if(item.cant != undefined && item.cant >0){
-              --item.cant;
-        }
-    }
-
-  aumentar(item: any) {
-    if (item.cant == undefined){
-          item.cant = 1;
-    } else if(item.cant != undefined){
-          ++item.cant;
+    if (item.cant == undefined) {
+      item.cant = 0;
+    } else if (item.cant != undefined && item.cant > 0) {
+      --item.cant;
     }
   }
 
+  aumentar(item: any) {
+    if (item.cant == undefined) {
+      item.cant = 1;
+    } else if (item.cant != undefined) {
+      ++item.cant;
+    }
+  }
+
+  getAllCat(id) {
+    this.productoService.getAllCat(id).subscribe((datap: Producto[]) => {
+      this.productos = datap;
+    })
+  }
 
 
 
@@ -63,12 +75,19 @@ export class ListaproductosComponent implements OnInit{
     const routeParams = this.route.snapshot.paramMap;
     const productIdFromRoute = Number(routeParams.get('productoId'));
 
+    /* Categorias Lista */
+    this.categoriaService.getCategorias().subscribe((datac: Categorias[]) => {
+      this.categorias = datac;
+    })
+
     /*Productos Lista*/
-    this.productoService.getAll().subscribe((data: Producto[])=>{
-      this.productos = data;
+    this.productoService.getAll().subscribe((datap: Producto[]) => {
+      this.productos = datap;
       this.item = this.productos.find(
         (item) => item.id === productIdFromRoute
       );
     })
+
+
   }
 }

@@ -18,8 +18,7 @@ import { ProductoModule } from './producto/producto.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NavbarComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

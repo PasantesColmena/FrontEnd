@@ -5,7 +5,8 @@ import { ListaproductosComponent } from './listaproductos/listaproductos.compone
 import { CheckoutComponent } from './checkout/checkout.component';
 
 const routes: Routes = [
-  { path: 'producto/lista', component: ListaproductosComponent },
+  { path: '', redirectTo : 'producto/lista/0', pathMatch: 'full'},
+  { path: 'producto/lista', redirectTo : 'producto/lista/0', pathMatch: 'full'},
   { path: 'producto/lista/:productoId', component: ListaproductosComponent },
   { path: 'producto/checkout', component: CheckoutComponent }
 ];
