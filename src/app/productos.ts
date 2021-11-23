@@ -2,7 +2,7 @@ export interface Producto {
   id: number;
   nom: string;
   desc: number;
-  pre_uni: string;
+  pre_uni: number;
   cant: number;
 }
 

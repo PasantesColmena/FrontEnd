@@ -14,6 +14,7 @@ export class UsuarioService {
 
   private apiURL = "http://localhost:8000/api/usuario/";
 
+  usua: Usuario
   httpOptions = {
      headers: new HttpHeaders({
        'Content-Type': 'application/json'
@@ -24,6 +25,13 @@ export class UsuarioService {
 
   getAll(): Observable<Usuario[]> {
     return this.httpClient.get<Usuario[]>(this.apiURL)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
+
+  getLastId(): Observable<Usuario[]> {
+    return this.httpClient.get<Usuario[]>(this.apiURL+'ultimo')
     .pipe(
       catchError(this.errorHandler)
     )

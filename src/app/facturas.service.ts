@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { Facturas } from './facturas';
+import { Desglose, Facturas } from './facturas';
 // import { Factura } from
 
 @Injectable({
@@ -23,7 +23,13 @@ export class FacturasService {
   constructor(private httpClient: HttpClient) { }
 
   createFactura(factura): Observable<Facturas> {
-    return this.httpClient.post<Facturas>(this.apiURL, JSON.stringify(factura), this.httpOptions)
+    return this.httpClient.post<Facturas>(this.apiURL+'create/factura', JSON.stringify(factura), this.httpOptions)
+      .pipe(
+        catchError(this.errorHandler)
+      )
+  }
+  createDesglose(desglose): Observable<Desglose> {
+    return this.httpClient.post<Desglose>(this.apiURL+'create/desgloses', JSON.stringify(desglose), this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       )

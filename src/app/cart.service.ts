@@ -18,12 +18,22 @@ export class CartService {
     this.totalPrecio += price;
   }
 
+
+  resPrecio(price) {
+    this.totalPrecio - price;
+  }
+
+
   getTotalPrecio() {
     return this.totalPrecio;
   }
 
   acumCant(cant) {
-    this.totalPrecio += cant;
+    this.totalCant += cant;
+  }
+
+  resCant(price) {
+    this.totalCant - price;
   }
 
   getTotalCantidad() {
@@ -37,6 +47,8 @@ export class CartService {
   clearCart() {
     this.items = [];
     return this.items;
+    this.totalPrecio = 0;
+    this.totalCant = 0;
   }
 
   deleteFromCart(itemid) {

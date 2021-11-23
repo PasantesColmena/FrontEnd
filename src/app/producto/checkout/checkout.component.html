@@ -42,6 +42,8 @@
             class="btn-delete"
             type="button"
             (click)="deleteFromCart(item)"
+            (click)="restarTotalPrecio(producto.pre_uni)"
+            (click)="restarTotalCantidad(producto.cant)"
           >
             X
           </button>

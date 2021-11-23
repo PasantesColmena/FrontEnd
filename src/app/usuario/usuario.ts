@@ -1,5 +1,5 @@
 export interface Usuario {
-
+  id:number;
   nom: string;
   ced: string;
   num: string;
