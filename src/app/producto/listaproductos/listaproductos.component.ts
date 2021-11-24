@@ -35,8 +35,8 @@ export class ListaproductosComponent implements OnInit {
     console.log(item.pre_uni);
   }
 
-  acumularTotalPrecio(price) {
-    this.cartService.acumPrecio(price);
+  acumularTotalPrecio(price,cant) {
+    this.cartService.acumPrecio(price,cant);
   }
 
   acumularTotalCant(cant) {

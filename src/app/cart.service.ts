@@ -14,8 +14,8 @@ export class CartService {
     this.items.push(product);
   }
 
-  acumPrecio(price) {
-    this.totalPrecio += price;
+  acumPrecio(price,cant) {
+    this.totalPrecio += price * cant;
   }
 
   getTotalPrecio() {
