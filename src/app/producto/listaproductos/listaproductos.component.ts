@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Producto } from '../../productos';
-import { ProductoService } from '../../productos.service';
-import { CartService } from '../../cart.service';
-import { CategoriaService } from '../../categorias.service';
-import { Categorias } from 'src/app/categorias';
+import { Producto } from '../service/productos/productos';
+import { ProductoService } from '../service/productos/productos.service';
+import { CartService } from '../service/cart/cart.service';
+import { CategoriaService } from '../service/categorias/categorias.service';
+import { Categorias } from 'src/app/producto/service/categorias/categorias';
 
 
 @Component({

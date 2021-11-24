@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import pdfMake from 'pdfmake/build/pdfmake';
-import pdfFonts from 'pdfmake/build/vfs_fonts';
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
+// import pdfMake from 'pdfmake/build/pdfmake';
+// import pdfFonts from 'pdfmake/build/vfs_fonts';
+// pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 
 @Component({
@@ -36,7 +36,7 @@ export class PdfMakerPruebaComponent implements OnInit {
         }
       ]
     };
-    pdfMake.createPdf(documentDefinition).download();
+    // pdfMake.createPdf(documentDefinition).download();
   }
 
   openPdf() {
@@ -58,7 +58,7 @@ export class PdfMakerPruebaComponent implements OnInit {
         }
       ]
     };
-    pdfMake.createPdf(documentDefinition).open();
+    // pdfMake.createPdf(documentDefinition).open();
   }
 
 }

@@ -5,7 +5,7 @@ import {  Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { Producto } from './productos';
-import { Categorias } from './categorias';
+import { Categorias } from '../categorias/categorias';
 
 @Injectable({
   providedIn: 'root'

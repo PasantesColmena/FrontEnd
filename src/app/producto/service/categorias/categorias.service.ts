@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { Producto } from './productos';
+import { Producto } from '../productos/productos';
 import { Categorias } from './categorias';
 
 @Injectable({

@@ -3,9 +3,9 @@ import { UsuarioService } from '../usuario.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import { CartService } from '../../cart.service';
-import { FacturasService } from 'src/app/facturas.service';
-import { Desglose, Facturas } from 'src/app/facturas';
+import { CartService } from '../../producto/service/cart/cart.service';
+import { FacturasService } from 'src/app/producto/service/facturas/facturas.service';
+import { Desglose, Facturas } from 'src/app/producto/service/facturas/facturas';
 import { Usuario } from '../usuario';
 
 @Component({
