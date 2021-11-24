@@ -17,16 +17,9 @@ export class CheckoutComponent {
 
   deleteFromCart(item) {
     this.cartService.deleteFromCart(item);
+    console.log(this.items);
   }
 
-  restarTotalPrecio(price) {
-    this.cartService.resPrecio(price);
-  }
-
-  restarTotalCantidad(cant) {
-    this.cartService.resCant(cant);
-
-  }
 
 
 }

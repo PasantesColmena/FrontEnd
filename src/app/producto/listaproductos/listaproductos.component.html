@@ -6,9 +6,9 @@
         Filtro
       </button>
       <div class="dropdown-content">
-        <a (click)="getAll()"> Todas </a>
+        <a class="dropdown-item" (click)="getAll()"> All </a>
         <div *ngFor="let categoria of categorias">
-          <a (click)="getAllCat(categoria.id)">{{ categoria.nom }}</a>
+          <a class="dropdown-item" (click)="getAllCat(categoria.id)">{{ categoria.nom }}</a>
         </div>
       </div>
     </div>

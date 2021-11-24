@@ -32,6 +32,7 @@ export class ListaproductosComponent implements OnInit {
   addToCart(item: Producto) {
     this.cartService.addToCart(item);
     window.alert('Your product has been added to the cart!');
+    console.log(item.pre_uni);
   }
 
   acumularTotalPrecio(price) {

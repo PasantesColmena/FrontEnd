@@ -18,22 +18,12 @@ export class CartService {
     this.totalPrecio += price;
   }
 
-
-  resPrecio(price) {
-    this.totalPrecio - price;
-  }
-
-
   getTotalPrecio() {
     return this.totalPrecio;
   }
 
   acumCant(cant) {
     this.totalCant += cant;
-  }
-
-  resCant(price) {
-    this.totalCant - price;
   }
 
   getTotalCantidad() {

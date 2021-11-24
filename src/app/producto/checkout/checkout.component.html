@@ -1,58 +1,50 @@
 <div class="atr-container">
-  <div class="atr-container-half">
-    <h1 class="atr-title">Recibo:</h1>
-  </div>
-  <div class="atr-container-half">
-    <div class="atr-item-container">
-      <div class="atr-item-half">
-        <p class="atr-text"> Nombre </p>
-      </div>
-      <div class="atr-item-half">
-        <p class="atr-text"> Cantidad </p>
-      </div>
-      <div class="atr-item-half">
-        <p class="atr-text"> Precio </p>
-      </div>
+  <div class="atr-item-container">
+    <div class="atr-item-half">
+      <p class="atr-text"> Nombre </p>
+    </div>
+    <div class="atr-item-half">
+      <p class="atr-text"> Cantidad </p>
+    </div>
+    <div class="atr-item-half">
+      <p class="atr-text"> Precio Unidad </p>
+    </div>
+    <div class="atr-item-half">
+      <p class="atr-text"> Precio Total </p>
     </div>
   </div>
 </div>
 <div class="check-container">
-  <div class="check-container-half">
-    <div class="info">
-
-    </div>
-    <button class="btn" [routerLink]="['/usuario/create']" type="button">
-      Comprar
-    </button>
-  </div>
-  <div class="check-container-half">
-    <div *ngFor="let item of items">
-      <div class="item-container">
-        <div class="item-container-half">
-          <p class="item-name">{{item.nom}}</p>
-        </div>
-        <div class="item-container-half">
-          <p class="item-cant">{{item.cant}}</p>
-        </div>
-        <div class="item-container-half">
-          <p class="item-price">{{ item.pre_uni * item.cant }}</p>
-        </div>
-        <div class="item-container-half-btn">
-          <button
-            class="btn-delete"
-            type="button"
-            (click)="deleteFromCart(item)"
-            (click)="restarTotalPrecio(producto.pre_uni)"
-            (click)="restarTotalCantidad(producto.cant)"
-          >
-            X
-          </button>
-        </div>
+  <div *ngFor="let item of items">
+    <div class="item-container">
+      <div class="item-container-half">
+        <p class="item-name">{{item.nom}}</p>
+      </div>
+      <div class="item-container-half">
+        <p class="item-cant">{{item.cant}}</p>
+      </div>
+      <div class="item-container-half">
+        <p class="item-price">₡{{ item.pre_uni }}</p>
+      </div>
+      <div class="item-container-half">
+        <p class="item-price">₡{{ item.pre_uni * item.cant }}</p>
+      </div>
+      <div class="item-container-half-btn">
+        <button
+          class="btn-delete"
+          type="button"
+          (click)="deleteFromCart(item)"
+          (click)="restarTotalPrecio(item.pre_uni)"
+          (click)="restarTotalCantidad(item.cant)"
+        >
+          X
+        </button>
       </div>
     </div>
   </div>
 </div>
-
-
+<button class="btn" [routerLink]="['/usuario/create']" type="button">
+  Comprar
+</button>
 
 

@@ -27,16 +27,15 @@
 .item-image {
   /* background-image: url('./img'); */
   height: 200px;
-  width: 300px;
+  width: 100%;
   overflow: hidden;
   margin-bottom: 30px;
 }
 
 img {
+  width: 100%;
   height: 200px;
-  width: 300px;
 }
-
 
 .item-atr {
   color: #18b7be;
@@ -44,6 +43,11 @@ img {
   font-size: 20px;
   position: absolute;
 }
+
+.item-desc {
+  height: 60px; /*Para que la descripcion no afecte al item size*/
+}
+
 
 .item-text {
   color: white;
@@ -87,7 +91,7 @@ img {
 }
 
 .btn-container-cantidad {
-  width: 50%;
+  width: 49%;
   margin-top: 20px;
   height: 80%;
   float: left;
@@ -111,6 +115,7 @@ img {
   width: 33%;
   height: 40px;
   float: left;
+  text-align: center;
 }
 
 .cant-label {
@@ -152,9 +157,6 @@ img {
   margin-right: 150px;
 }
 
-.item-desc {
-  height: 50px; /*Para que la descripcion no afecte al item size*/
-}
 
 
 /*DropDown*/
@@ -165,41 +167,6 @@ img {
   margin-right: 220px;
 }
 
-/* .dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-btn {
-  background-color: #072a40;
-  color: white;
-  width: 150px;
-  padding: 16px;
-  font-size: 20px;
-  border-radius: 5px;
-  border: none;
-}
-
-.dropdown-content {
-  display: block;
-  position: absolute;
-  background-color: #64c4af;
-  min-width: 160px;
-  margin-top: 20px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  border-radius: 6px;
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: rgb(255, 255, 255);
-  display: none;
-  padding: 12px 16px;
-  font-weight: bold;
-  font-size: 20px;
-  text-decoration: none;
-  display: block;
-} */
 
 .dropdown {
   position: relative;
@@ -249,10 +216,21 @@ img {
   display: block;
 }
 
-/* .dropdown:hover .dropdown-btn {
-  background-color: #64c4af;
-} */
+.dropdown:hover .dropdown-content {display: block;}
 
-/* .dropdown:active .dropdown-content {display: block;}
+.dropdown-content a:hover {background-color: #ddd; color: #000000;}
 
-.dropdown-content a:hover {background-color: #ddd; color: #000000;} */
+
+/* Responsive Screen */
+
+/*2560*/
+@media screen and (max-width:1920px) {
+  .item-imgage {
+  }
+}
+
+
+/*1920px*/
+@media screen and (max-width:1920px) {
+
+}
