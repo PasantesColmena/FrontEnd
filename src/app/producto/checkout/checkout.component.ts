@@ -20,4 +20,6 @@ export class CheckoutComponent {
     console.log(this.items);
   }
 
+
+
 }

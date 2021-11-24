@@ -19,6 +19,11 @@ export class CartService {
   }
 
   getTotalPrecio() {
+    this.totalPrecio = 0;
+    for (let item = 0; item < this.items.length; item ++) {
+      const element = this.items[item];
+      this.totalPrecio += element.pre_uni*element.cantlleva;
+    }
     return this.totalPrecio;
   }
 
@@ -36,14 +41,16 @@ export class CartService {
 
   clearCart() {
     this.items = [];
-    return this.items;
     this.totalPrecio = 0;
     this.totalCant = 0;
+    return this.items;
+
   }
 
   deleteFromCart(itemid) {
     this.items.forEach( (item, index) => {
-      if(item === itemid) this.items.splice(index,1);
+      if(item === itemid)
+        this.items.splice(index,1);
     });
   }
 

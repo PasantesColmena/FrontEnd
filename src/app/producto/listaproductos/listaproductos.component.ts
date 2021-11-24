@@ -19,7 +19,7 @@ export class ListaproductosComponent implements OnInit {
   categorias: Categorias[] = [];
   item: Producto | undefined;
   itemc: Categorias | undefined;
-
+  i
 
   constructor(
     private route: ActivatedRoute,
@@ -43,21 +43,23 @@ export class ListaproductosComponent implements OnInit {
     this.cartService.acumCant(cant);
   }
 
-
-
   disminuir(item: any) {
-    if (item.cant == undefined) {
-      item.cant = 0;
-    } else if (item.cant != undefined && item.cant > 0) {
-      --item.cant;
+    if (item.cantlleva == undefined) {
+      item.cantlleva = 0;
+    } else if (item.cantlleva != undefined && item.cantlleva > 0) {
+      --item.cantlleva;
     }
   }
 
   aumentar(item: any) {
-    if (item.cant == undefined) {
-      item.cant = 1;
-    } else if (item.cant != undefined) {
-      ++item.cant;
+    if (item.cantlleva == undefined) {
+      item.cantlleva = 1;
+    } else if (item.cantlleva != undefined) {
+      if (item.cantlleva == item.cant)
+        item.cantlleva=item.cantlleva;
+      else
+        ++item.cantlleva;
+
     }
   }
 
@@ -72,7 +74,6 @@ export class ListaproductosComponent implements OnInit {
       this.productos = datap;
     })
   }
-
 
   ngOnInit(): void {
 

@@ -53,8 +53,8 @@ export class CreateComponent implements OnInit {
         const element = this.items[item];
         this.desg['facturas_id'] = 0;
         this.desg['producto_id'] = element.id;
-        this.desg['cantidad'] = element.cant;
-        this.desg['pre_tot'] = (element.pre_uni * element.cant);
+        this.desg['cantidad'] = element.cantlleva;
+        this.desg['pre_tot'] = (element.pre_uni * element.cantlleva);
         console.log(Object.assign({}, this.desg));
         this.facturaService.createDesglose(Object.assign({}, this.desg)).subscribe(res => {
           console.log('Desglose creado correctamente!');
