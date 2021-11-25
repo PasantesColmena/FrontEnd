@@ -37,7 +37,7 @@
       <!-- Boton -->
       <div class="btn-container">
         <button type="button" class="btn-agregar" [routerLink]="['/producto/lista/', producto.id]"
-          (click)="addToCart(producto)"
+          (click)="addToCart(producto, producto.cantlleva)"
           (click)="acumularTotalPrecio(producto.pre_uni,producto.cant)"
           (click)="acumularTotalCant(producto.cant)">
           Agregar

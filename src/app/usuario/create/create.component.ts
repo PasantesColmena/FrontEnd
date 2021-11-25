@@ -48,23 +48,27 @@ export class CreateComponent implements OnInit {
     this.fact.toString();
     console.log(Object.assign({}, this.fact));
     this.facturaService.createFactura(Object.assign({}, this.fact)).subscribe(res => {
-
+      window.alert('Su compra esta siendo procesada.');
       for (let item = 0; item < this.items.length; item++) {
         const element = this.items[item];
         this.desg['facturas_id'] = 0;
         this.desg['producto_id'] = element.id;
         this.desg['cantidad'] = element.cantlleva;
         this.desg['pre_tot'] = (element.pre_uni * element.cantlleva);
-        console.log(Object.assign({}, this.desg));
         this.facturaService.createDesglose(Object.assign({}, this.desg)).subscribe(res => {
           console.log('Desglose creado correctamente!');
+          if (item===this.items.length-1){
+            window.alert('Su compra ha sido realizada');
+            this.cartService.clearCart();
+            this.router.navigate(['producto/pdf']);
+          }
         })
+
       }
       console.log('Factura creada correctamente!');
-      window.alert('Su compra ha sido realizada');
-      this.cartService.clearCart();
-      this.router.navigate(['']);
+
     })
+
 
 
 

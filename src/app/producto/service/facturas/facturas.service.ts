@@ -22,14 +22,22 @@ export class FacturasService {
 
   constructor(private httpClient: HttpClient) { }
 
+
+  getLast(): Observable<any[]> {
+    return this.httpClient.get<any[]>(this.apiURL+'ultima')
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
+
   createFactura(factura): Observable<Facturas> {
-    return this.httpClient.post<Facturas>(this.apiURL+'create/factura', JSON.stringify(factura), this.httpOptions)
+    return this.httpClient.post<Facturas>(this.apiURL + 'create/factura', JSON.stringify(factura), this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       )
   }
   createDesglose(desglose): Observable<Desglose> {
-    return this.httpClient.post<Desglose>(this.apiURL+'create/desgloses', JSON.stringify(desglose), this.httpOptions)
+    return this.httpClient.post<Desglose>(this.apiURL + 'create/desgloses', JSON.stringify(desglose), this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       )

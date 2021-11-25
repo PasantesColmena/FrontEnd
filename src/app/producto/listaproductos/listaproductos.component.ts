@@ -19,7 +19,6 @@ export class ListaproductosComponent implements OnInit {
   categorias: Categorias[] = [];
   item: Producto | undefined;
   itemc: Categorias | undefined;
-  i
 
   constructor(
     private route: ActivatedRoute,
@@ -29,10 +28,14 @@ export class ListaproductosComponent implements OnInit {
 
   ) { }
 
-  addToCart(item: Producto) {
-    this.cartService.addToCart(item);
-    window.alert('Your product has been added to the cart!');
-    console.log(item.pre_uni);
+  addToCart(item: Producto, productoCantlleva) {
+    if (productoCantlleva == 0) {
+      window.alert('Producto no Disponible');
+    } else {
+      this.cartService.addToCart(item);
+      window.alert('Su producto a sido añadido al carrito!');
+    }
+
   }
 
   acumularTotalPrecio(price,cant) {
