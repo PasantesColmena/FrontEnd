@@ -28,8 +28,8 @@ export class ListaproductosComponent implements OnInit {
 
   ) { }
 
-  addToCart(item: Producto, productoCantlleva) {
-    if (productoCantlleva == 0) {
+  addToCart(item: Producto, productoCantlleva) {//Añade productos al cart
+    if (productoCantlleva == 0) {  //Si no hay disponible o la cantidad es 0 no lo hace
       window.alert('Producto no Disponible');
     } else {
       this.cartService.addToCart(item);

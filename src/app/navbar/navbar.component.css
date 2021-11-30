@@ -70,23 +70,20 @@
 .nav-checkout {
   width: 100%;
   height: 100%;
+  padding-left: 260px;
 }
 
-.cart-checkout {
-  width: 50%;
-  height: 100%;
-  float: left;
-}
 
 /* -- Icon */
 
 /* - Icon Container*/
 .icon-container {
-  width: 50%;
+  width: 60%;
   height: 100%;
+  border-radius: 300px;
   float: left;
   padding-bottom: 30px;
-  padding-left: 280px;
+  background-color: white;
 }
 
 .icon-half-cant {
@@ -95,7 +92,7 @@
   padding-top: 30px;
   line-height: 50%;
   font-family: Anton;
-  color: white;
+  color: #178CA4;
 }
 .icon-half-icon {
   height: 50%;
@@ -103,29 +100,24 @@
 }
 
 .icon-q {
-  color: white;
-  font-size: 15px;
+  font-size: 25px;
 }
 
 .icon {
-  color: white;
-  font-size: 45px;
+  color: #178CA4;
+  font-size: 60px;
 }
+
+
 
 /* --- End Icon*/
 
 
-.btn {
-  border-radius: 300px;
-  background-color: rgb(255, 255, 255);
-  width: 280px;
-
-  font-size: 45px;
-  font-family: Anton;
-  color: #178CA4;
+.btn-color-cant  {
+  color: #072a40;
 }
 
-.btn-color-g {
+.btn-color-icon  {
   color: #072a40;
 }
 

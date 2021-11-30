@@ -8,3 +8,7 @@ export interface Desglose {
   cantidad: number;
   pre_tot: number;
 }
+export interface factura {
+    id: number;
+}
+

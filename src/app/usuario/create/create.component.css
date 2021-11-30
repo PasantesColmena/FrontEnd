@@ -7,6 +7,9 @@ alert-danger{
   width: 100%;
 }
 
+.form-container {
+  padding-top: 200px;
+}
 
 .title {
   font-size: 100px;
@@ -14,7 +17,6 @@ alert-danger{
   color: #072a40;
   text-shadow: #18b7be 6px 0px;
   margin-bottom: 80px;
-  margin-top: 100px;
 
 }
 

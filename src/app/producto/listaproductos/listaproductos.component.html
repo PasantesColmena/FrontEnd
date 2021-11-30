@@ -18,7 +18,7 @@
         Filtro
       </button>
       <div class="dropdown-content">
-        <a class="dropdown-item" (click)="getAll()"> All </a>
+        <a class="dropdown-item" (click)="getAll()"> Todos </a>
         <div *ngFor="let categoria of categorias">
           <a class="dropdown-item" (click)="getAllCat(categoria.id)">{{ categoria.nom }}</a>
         </div>

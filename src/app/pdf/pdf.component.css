@@ -1,0 +1,36 @@
+.fact-container {
+    padding-top: 400px;
+    padding-left: 500px;
+    padding-right: 500px;
+    width: auto;
+}
+
+.title-container {
+    width: 100%;
+    height: 200px;
+    color: white;
+    font-family: Anton;
+    font-size: 60px;
+    text-align: center;
+}
+
+.fact-item-container {
+    height: auto;
+    width: 100%;
+    background-color: yellow;
+}
+
+.fact-item-descargar {
+    width: 100%;
+    height: auto;
+    float: left;
+    background-color: green;
+    font-family: Neue;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+}
+
+.btn {
+    background-color: red;
+}

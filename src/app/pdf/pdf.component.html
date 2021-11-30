@@ -1,0 +1,30 @@
+<div class="fact-container">
+    <div class="title-container">
+        Factura
+    </div>
+    <div class="item-container">
+        <div *ngFor="let fact of facturas">
+            <div class="item-half">
+                <p>{{fact.usuario.nom}}</p>
+                <p>{{fact.usuario.dir}}</p>
+            </div>
+            <p>Cantidad....Nombre....Pre_Uni.....Pre_Tot</p>
+            <div *ngFor="let desg of desglose">
+              <div class="item-half">
+                  <p>{{ desg.cantidad }}.......{{ desg.producto.nom }}.......{{ desg.producto.pre_uni }}........{{ desg.pre_tot }}</p>
+              </div>
+            </div>
+            <p>-.........-........-.......-</p>
+            <p>/blanco/....../blanco/......Precio Total:.....{{ mon_tot }}</p>
+        </div>
+    </div>
+    <div class="fact-item-container">
+        <div class="fact-item-descargar">
+            <p>Descargar Factura</p>
+            <button (click)="downloadPdf()" class="btn">
+                <em class=" icon material-icons" id="icon">shopping_cart</em>
+            </button>
+        </div>
+
+    </div>
+</div>

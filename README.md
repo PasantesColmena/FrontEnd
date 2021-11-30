@@ -9,6 +9,7 @@ Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-
 ## Instalación de paquetes
 
 Ejecute `npm install` y no ejecute `npm audit fix --force` ya que va a fallar.
+Ejecute `npm install pdfmake` para la funcion del pdf.
 
 ## Servidor de desarrollo 
 

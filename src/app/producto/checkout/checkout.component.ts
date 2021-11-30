@@ -15,9 +15,8 @@ export class CheckoutComponent {
     private cartService: CartService,
   ) {}
 
-  deleteFromCart(item) {
+  deleteFromCart(item) { //Elimina el item dentro del cart
     this.cartService.deleteFromCart(item);
-    console.log(this.items);
   }
 
 
