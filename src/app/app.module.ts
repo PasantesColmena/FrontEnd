@@ -9,7 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UsuarioModule } from './usuario/usuario.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProductoModule } from './producto/producto.module';
-// import { PdfMakerPruebaComponent } from './pdfmaker-prueba/pdfmaker-prueba.component';
+import { PdfMakerPruebaComponent } from './pdfmaker-prueba/pdfmaker-prueba.component';
 
 
 
@@ -17,7 +17,7 @@ import { ProductoModule } from './producto/producto.module';
   declarations: [
     AppComponent,
     NavbarComponent,
-    // PdfMakerPruebaComponent
+    PdfMakerPruebaComponent
   ],
   imports: [
     BrowserModule,
