@@ -1,30 +1,58 @@
 <div class="fact-container">
+
     <div class="title-container">
         Factura
     </div>
-    <div class="item-container">
-        <div *ngFor="let fact of facturas">
-            <div class="item-half">
-                <p>{{fact.usuario.nom}}</p>
-                <p>{{fact.usuario.dir}}</p>
-            </div>
-            <p>Cantidad....Nombre....Pre_Uni.....Pre_Tot</p>
-            <div *ngFor="let desg of desglose">
-              <div class="item-half">
-                  <p>{{ desg.cantidad }}.......{{ desg.producto.nom }}.......{{ desg.producto.pre_uni }}........{{ desg.pre_tot }}</p>
-              </div>
-            </div>
-            <p>-.........-........-.......-</p>
-            <p>/blanco/....../blanco/......Precio Total:.....{{ mon_tot }}</p>
-        </div>
-    </div>
-    <div class="fact-item-container">
-        <div class="fact-item-descargar">
-            <p>Descargar Factura</p>
-            <button (click)="downloadPdf()" class="btn">
-                <em class=" icon material-icons" id="icon">shopping_cart</em>
-            </button>
-        </div>
 
+    <div class="user-container">
+      <div *ngFor="let fact of facturas">
+        <p> Nombre: {{fact.usuario.nom}}</p>
+        <p> Dirección:  {{fact.usuario.dir}}</p>
+      </div>
+    </div>
+
+    <div class="atr-container">
+      <div class="atr-half">
+        <p class="atr-text"> Cantidad </p>
+      </div>
+      <div class="atr-half">
+        <p class="atr-text"> Nombre </p>
+      </div>
+      <div class="atr-half">
+        <p class="atr-text"> Pre_Uni </p>
+      </div>
+      <div class="atr-half">
+        <p class="atr-text"> Pre_Tot </p>
+      </div>
+    </div>
+
+    <div class="item-container">
+      <div *ngFor="let desg of desglose">
+        <div class="item-half">
+          {{ desg.cantidad }}
+        </div>
+        <div class="item-half">
+          {{ desg.producto.nom }}
+        </div>
+        <div class="item-half">
+          {{ desg.producto.pre_uni }}
+        </div>
+        <div class="item-half">
+          {{ desg.pre_tot }}
+        </div>
+      </div>
+    </div>
+
+
+    <div class="under-container">
+      <div class="btn-container">
+        <p>Descargar Factura</p>
+        <button (click)="downloadPdf()" class="btn">
+            <em class=" icon material-icons" id="icon">download</em>
+        </button>
+      </div>
+      <div class="tot-container">
+        <p>Precio Total: {{ mon_tot }}</p>
+      </div>
     </div>
 </div>
