@@ -275,9 +275,39 @@ img {
   display: block;
 }
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
 
 .dropdown-content a:hover {background-color: #ddd; color: #000000;}
 
+.desc-container {
+  height: 60px;
+}
+
+/*1366px*/
+@media screen and (max-width:1366px) {
+
+  .btn-max-container {
+
+    padding-left: 10px;
+  }
+
+  .banner-title {
+    font-size: 100px;
+  }
+
+  .list-item-container {
+    padding-left: 30px;
+  }
+
+  .item-image {
+    height: 400px;
+  }
+
+  .desc-container {
+    height: 90px;
+  }
+
+
+  .filter-container {
+    padding-left: 30px;
+  }
+}

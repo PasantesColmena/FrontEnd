@@ -116,3 +116,30 @@
   font-weight: bold;
   color: white;
 }
+
+
+@media screen and (max-width:1366px) {
+
+  .btn {
+
+    background-color: aqua;
+    margin-top: 60px;
+    border-radius: 12px;
+    margin-left: 180px;
+    width: 78%;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+
+  /*Atributos*/
+
+  .atr-container {
+    margin-top: 220px;
+    margin-left: 60px;
+    height: 80px;
+    width: 70%;
+    text-align: center;
+  }
+
+}

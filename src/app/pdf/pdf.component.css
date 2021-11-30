@@ -87,3 +87,14 @@
 .icon {
   margin-top: 10px;
 }
+
+/*1366px*/
+@media screen and (max-width:1366px) {
+  .fact-container {
+    padding-top: 250px;
+    padding-left: 250px;
+    padding-right: 250px;
+    width: auto;
+}
+
+}
