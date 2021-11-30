@@ -1,29 +1,132 @@
 .navbar {
-  background-color: #072a40;
-  height: 80px;
-  padding-right: 60px;
-  padding-left: 20px;
-  align-items: left;
-  justify-content: flex-start;
+  height: 190px;
+  width: 100%;
+  background-color: transparent;
+  transition: all ease-in-out 250ms;
+
 }
+
+.bg-primary-g{
+  background-color: #072a40;
+}
+
+
+.nav-item {
+  width: 33%;
+  line-height: 120px;
+  height: 120px;
+  text-align: center;
+
+}
+
+
 
 .nav-title {
-  text-decoration: none;
-  text-align: left;
-  color: #f6f4e6;
-  font-size: 30px;
-  margin-left: 30px;
+  font-family: Anton;
+  font-size: 40px;
+  color: white;
 }
 
+/* --- Home Item*/
+
+.nav-shop {
+  font-family: Anton;
+  font-size: 40px;
+  color: white;
+}
+
+.nav-shop a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+}
+
+.nav-shop a:hover {
+  color: white;
+}
+
+.nav-shop a::before {
+  content: '';
+  display: block;
+  height: 5px;
+  background-color: white;
+  margin-left: 296px;
+
+  position: absolute;
+  width: 0%;
+
+  transition: all ease-in-out 250ms;
+
+}
+.nav-shop a:hover::before {
+  width: 80px;
+}
+
+/* --- End Home Item*/
+
+
+
+/* --- CheckOut Item*/
 .nav-checkout {
-  text-decoration: none;
-  color: antiquewhite;
-  background-color: #18b7be;
-  height: 45px;
-  width: 180px;
-  font-size: 25px;
-  font-weight: bold;
-  padding-left: 10px;
-  border-radius: 4px;
+  width: 100%;
+  height: 100%;
 }
 
+.cart-checkout {
+  width: 50%;
+  height: 100%;
+  float: left;
+}
+
+/* -- Icon */
+
+/* - Icon Container*/
+.icon-container {
+  width: 50%;
+  height: 100%;
+  float: left;
+  padding-bottom: 30px;
+  padding-left: 280px;
+}
+
+.icon-half-cant {
+  height: 50%;
+  padding-left: 35px;
+  padding-top: 30px;
+  line-height: 50%;
+  font-family: Anton;
+  color: white;
+}
+.icon-half-icon {
+  height: 50%;
+  line-height: 50%;
+}
+
+.icon-q {
+  color: white;
+  font-size: 15px;
+}
+
+.icon {
+  color: white;
+  font-size: 45px;
+}
+
+/* --- End Icon*/
+
+
+.btn {
+  border-radius: 300px;
+  background-color: rgb(255, 255, 255);
+  width: 280px;
+
+  font-size: 45px;
+  font-family: Anton;
+  color: #178CA4;
+}
+
+.btn-color-g {
+  color: #072a40;
+}
+
+/* --- End CheckOut*/

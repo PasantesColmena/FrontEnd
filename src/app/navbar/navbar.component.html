@@ -1,9 +1,33 @@
-<nav class="navbar fixed-top">
-  <!-- <a href="/usuario/create" class="nav-title">Registrar</a> -->
-  <a routerLink="/producto/lista" class="nav-title">Tienda</a>
-  <a routerLink="/producto/checkout" class="nav-title">CheckOut</a>
-  <!-- <button class="nav-checkout">
-    <em class="material-icons">shopping_cart</em>
-    Checkout
-  </button> -->
+
+<nav class="navbar fixed-top" (scroll)="onWindowScroll()">
+  <div class="nav-item">
+    <p class="nav-title">Verdureria la Ficticia</p>
+  </div>
+  <div class="nav-item">
+    <p class="nav-shop">
+      <a routerLink="/producto/lista">
+        Home
+      </a>
+    </p>
+  </div>
+  <div class="nav-item">
+    <div class="nav-checkout">
+      <div class="icon-container">
+        <div class="icon-half-cant">
+          <span>{{items.length}}</span>
+        </div>
+        <div class="icon-half-icon">
+          <a routerLink="/producto/checkout">
+            <em class=" icon material-icons" >shopping_cart</em>
+          </a>
+        </div>
+      </div>
+      <div class="cart-checkout" routerLink="/producto/checkout">
+        <button class="btn">
+          CheckOut
+        </button>
+      </div>
+    </div>
+  </div>
 </nav>
+

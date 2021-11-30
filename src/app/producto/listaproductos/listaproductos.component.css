@@ -1,32 +1,58 @@
 
+
 .list-container {
-  height: 1900px;
   width: 100%;
-  padding-left: 260px;
-  padding-right: 20px;
+  height: 100%;
   padding-top: 150px;
 }
 
-
-.list-item {
-  background-color: #072a40;
-  height: 340px;
-  width: 20%;
-  margin: 20px;
-  margin-bottom: 70px;
-  float: left;
-  padding: 20px;
-  overflow:hidden;
-  height: auto;
-  border-radius: 10px;
-  border-color: #24d0da;
-  border-width: 6px;
-  border-style: solid;
+.list-item-container {
+  padding-left: 120px;
 }
 
+/* --- Banner */
+
+.banner-container {
+  height: auto;
+  width: 100%;
+  margin-bottom: 100px;
+}
+
+.banner-title {
+  text-align: justify;
+  color: white;
+  font-family: Anton;
+  font-size: 180px;
+  text-align: center;
+}
+
+
+/* --- End Banner*/
+
+
+/*Item*/
+.list-item {
+  width: 30%;
+  height: auto;
+  margin: 20px;
+  float: left;
+  overflow:hidden;
+
+  background-color: #072a40;
+  border-color: #24d0da;
+  transition: 0.3s ease-in-out;
+
+}
+
+.list-item:hover {
+  transform: scale(1.04);
+}
+
+
+/*Image*/
+
 .item-image {
-  /* background-image: url('./img'); */
-  height: 200px;
+  height: 500px;
   width: 100%;
   overflow: hidden;
   margin-bottom: 30px;
@@ -34,86 +60,114 @@
 
 img {
   width: 100%;
-  height: 200px;
+  height: 100%;
 }
+
+/*Item Content (atr - desc - price)*/
+.item-content{
+  padding: 30px;
+}
+
+
 
 .item-atr {
   color: #18b7be;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 25px;
+  font-family: Neue;
   position: absolute;
+  margin-left: 40px;
 }
-
-.item-desc {
-  height: 60px; /*Para que la descripcion no afecte al item size*/
-}
-
 
 .item-text {
   color: white;
   font-weight: lighter;
-  margin-left: 140px;
+  margin-left: 180px;
+  font-size: 20px;
+  font-family: Neue;
   overflow: hidden;
 }
 
-.item-title-name {
-  text-align: center;
-  text-shadow: #000000 6px 0px;
-  color: #18b7be;
-  margin-bottom: 25px;
 
-}
+/*Title*/
 
 .item-title-box {
   width: 100%;
   height: 60px;
+  line-height: 60px;
+  background-color: #64c4af;
+  border-radius: 10px;
   margin-bottom: 30px;
+  padding-top: 8px;
 }
 
-/*Buttons Under*/
+.item-title-name {
+  text-align: center;
+  color:white;
+  font-family: Neue;
+}
+
+
+
+/*End Title*/
+
+/* Botones */
 
 .btn-container {
   width: 100%;
-  height: 70px;
+  height: 80px;
 }
+
+.btn-container-half {
+  width: 50%;
+  height: 60px;
+  float: left;
+}
+
+/*Boton Agregar*/
 
 .btn-agregar {
   font-weight: bold;
   margin-top: 20px;
-  height: 80%;
-  width: 40%;
+  height: 100%;
+  width: 100%;
   margin-right: 30px;
   background-color: #64c4af;
   color: white;
-  float: left;
   border-radius: 30px;
   border: #072a40;
 }
 
-.btn-container-cantidad {
-  width: 49%;
+.btn-agregar:hover {
+  background-color: #47b19a;
+}
+
+/*Botones Cantidad*/
+
+.btn-cantidad {
   margin-top: 20px;
-  height: 80%;
-  float: left;
-  padding-top: 10px;
+  width: 100%;
+  height: 100%;
 }
 
 .btn-max-container {
   width: 33%;
   height: 40px;
   float: left;
-
+  padding-left: 40px;
 }
-
 .btn-min-container {
   width: 33%;
   height: 40px;
   float: left;
+  padding-left: 10px;
 }
 
 .cant-label-container {
   width: 33%;
   height: 40px;
+  padding-left: 20px;
+  padding-top: 12px;
   float: left;
   text-align: center;
 }
@@ -126,8 +180,8 @@ img {
 .btn-max {
   border-radius: 50%;
   border: none;
-  height: 40px;
-  width: 40px;
+  height: 60px;
+  width: 60px;
   background-color: #18b7be;
   color: white;
   font-weight: bold;
@@ -138,8 +192,8 @@ img {
 .btn-min {
   border-radius: 50%;
   border: none;
-  height: 40px;
-  width: 40px;
+  height: 60px;
+  width: 60px;
   background-color: #18b7be;
   color: white;
   font-weight: bold;
@@ -147,16 +201,15 @@ img {
   padding-bottom: 3px;
 }
 
-
-.title {
-  font-size: 100px;
-  text-align: center;
-  color: antiquewhite;
-  text-shadow: #072a40 6px 0px;
-  margin-bottom: 40px;
-  margin-right: 150px;
+.btn-max:hover {
+  background-color: #146f74;
 }
 
+.btn-min:hover {
+  background-color: #146f74;
+}
+
+/*End Boton Cantidad*/
 
 
 /*DropDown*/
@@ -165,72 +218,66 @@ img {
   margin-left: 20px;
   margin-bottom: 15px;
   margin-right: 220px;
+  padding-left: 120px;
+
 }
 
 
 .dropdown {
   position: relative;
   display: inline-block;
+
 }
 
 .dropdown-btn {
   background-color: #072a40;
   color: white;
+  font-family: Anton;
   border: 2px;
-  border-color: rgb(35, 244, 255);
+  border-color: transparent;
   border-style: solid;
-  width: 150px;
+  width: 160px;
   padding: 16px;
-  font-size: 20px;
-  border-radius: 5px;
+  font-size: 25px;
   cursor: pointer;
 }
 
 .dropdown-content {
+
   display: none;
   position: absolute;
   background-color: #072a40;
   border: 2px;
-  border-color: rgb(35, 244, 255);
+  border-color: transparent;
   border-style: solid;
   min-width: 160px;
-  margin-top: 0x;
+  margin-top: 0px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  border-radius: 6px;
   z-index: 1;
 }
 
 .dropdown-content a {
   color: rgb(255, 255, 255);
+  font-family: Neue;
   display: none;
   padding: 12px 16px;
-  font-weight: bold;
   font-size: 20px;
   text-decoration: none;
   display: block;
+  font-size: 20px;
 }
 
-.dropdown-content a:hover {background-color: #64c4af}
+.dropdown-content a:hover {
+  background-color: #64c4af
+}
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
 .dropdown-content a:hover {background-color: #ddd; color: #000000;}
 
-
-/* Responsive Screen */
-
-/*2560*/
-@media screen and (max-width:1920px) {
-  .item-imgage {
-  }
-}
-
-
-/*1920px*/
-@media screen and (max-width:1920px) {
-
-}
