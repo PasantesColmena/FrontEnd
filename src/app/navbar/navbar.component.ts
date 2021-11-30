@@ -9,20 +9,25 @@ import { CartService } from '../producto/service/cart/cart.service';
 
 export class NavbarComponent{
 
+  /* Recibe los items del carrito en un array */
   items = this.cartService.getItems();
 
   constructor(
     private cartService: CartService,
   ) {}
 
-
+    /* Declara el evento scroll del HostListener */
   @HostListener('window:scroll', ['$event'])
 
   onWindowScroll() {
+    /* NavBar */
     let element1 = document.querySelector('nav');
+    /* Icon Cantidad */
     let element2 = document.getElementById('icon-cant');
+    /* Icon Carrito */
     let element3 = document.getElementById('icon');
 
+    /* Condiciones para el cambio de color segun la altura del scroll */
       if (window.pageYOffset > 1) {
         element1.classList.add('bg-primary-g');
         element2.classList.add('btn-color-cant');
