@@ -6,26 +6,27 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-//Inicio Serviciosios
-import { CargarScriptsService } from "./cargar-scripts.service";
-//Fin Servicios
-
 import { UsuarioModule } from './usuario/usuario.module';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ProductoModule } from './producto/producto.module';
+import { PdfComponent } from './pdf/pdf.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    PdfComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     UsuarioModule,
+    ProductoModule,
     HttpClientModule,
     NgbModule
   ],
-  providers: [CargarScriptsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

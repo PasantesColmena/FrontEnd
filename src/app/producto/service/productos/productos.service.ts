@@ -4,17 +4,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {  Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { Usuario } from './usuario';
-// import { Factura } from
+import { Producto } from './productos';
+import { Categorias } from '../categorias/categorias';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsuarioService {
+export class ProductoService {
 
-  private apiURL = "http://localhost:8000/api/usuario/";
+  private apiURL = "http://localhost:8000/api/productos/";
 
-  usua: Usuario
   httpOptions = {
      headers: new HttpHeaders({
        'Content-Type': 'application/json'
@@ -23,31 +22,29 @@ export class UsuarioService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAll(): Observable<Usuario[]> {
-    return this.httpClient.get<Usuario[]>(this.apiURL)
+  getAll(): Observable<Producto[]> {
+    return this.httpClient.get<Producto[]>(this.apiURL)
     .pipe(
       catchError(this.errorHandler)
     )
   }
 
-  getLastId(): Observable<Usuario[]> {
-    return this.httpClient.get<Usuario[]>(this.apiURL+'ultimo')
+  getAllCat(id): Observable<Producto[]> {
+    return this.httpClient.get<Producto[]>(this.apiURL+id)
     .pipe(
       catchError(this.errorHandler)
     )
   }
 
-  createUsuario(usuario): Observable<Usuario> {
-    return this.httpClient.post<Usuario>(this.apiURL, JSON.stringify(usuario), this.httpOptions)
+  create(producto): Observable<Producto> {
+    return this.httpClient.post<Producto>(this.apiURL, JSON.stringify(producto), this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
   }
-
-
 
   delete(ced){
-    return this.httpClient.delete<Usuario>(this.apiURL + ced, this.httpOptions)
+    return this.httpClient.delete<Producto>(this.apiURL + ced, this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
