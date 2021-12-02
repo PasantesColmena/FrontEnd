@@ -1,39 +1,22 @@
 
 
 .list-container {
-  width: 100%;
-  height: 100%;
-  padding-top: 150px;
+  padding-top: 120px;
 }
 
 .list-item-container {
-  padding-left: 120px;
+
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 60px;
+
 }
-
-/* --- Banner */
-
-.banner-container {
-  height: auto;
-  width: 100%;
-  margin-bottom: 100px;
-}
-
-.banner-title {
-  text-align: justify;
-  color: white;
-  font-family: Anton;
-  font-size: 180px;
-  text-align: center;
-}
-
-
-/* --- End Banner*/
 
 
 /*Item*/
 .list-item {
-  width: 30%;
-  height: auto;
+  width: 300px;
+  height: 850px;
   margin: 20px;
   float: left;
   overflow:hidden;
@@ -44,16 +27,19 @@
 
 }
 
+
+
+/*Efecto*/
 .list-item:hover {
   transform: scale(1.04);
 }
 
 
-/*Image*/
+/*Imagen*/
 
 .item-image {
-  height: 500px;
-  width: 100%;
+  height: 300px;
+  width: 300px;
   overflow: hidden;
   margin-bottom: 30px;
 }
@@ -63,7 +49,7 @@ img {
   height: 100%;
 }
 
-/*Item Content (atr - desc - price)*/
+/*Contenido Item (atr - desc - price)*/
 .item-content{
   padding: 30px;
 }
@@ -76,20 +62,23 @@ img {
   font-size: 25px;
   font-family: Neue;
   position: absolute;
-  margin-left: 40px;
 }
 
 .item-text {
   color: white;
   font-weight: lighter;
-  margin-left: 180px;
+  margin-left: 120px;
   font-size: 20px;
   font-family: Neue;
   overflow: hidden;
 }
 
+.desc-container {
+  height: 120px;
+}
 
-/*Title*/
+
+/*Titulo*/
 
 .item-title-box {
   width: 100%;
@@ -109,29 +98,22 @@ img {
 
 
 
-/*End Title*/
+/*Fin titulo */
 
-/* Botones */
 
-.btn-container {
-  width: 100%;
-  height: 80px;
-}
 
-.btn-container-half {
-  width: 50%;
-  height: 60px;
-  float: left;
-}
 
-/*Boton Agregar*/
+
+
+/*Botones Item*/
+
+/*Agregar*/
 
 .btn-agregar {
   font-weight: bold;
   margin-top: 20px;
-  height: 100%;
+  height: 45px;
   width: 100%;
-  margin-right: 30px;
   background-color: #64c4af;
   color: white;
   border-radius: 30px;
@@ -142,74 +124,56 @@ img {
   background-color: #47b19a;
 }
 
-/*Botones Cantidad*/
+/*Fin Agregar*/
 
-.btn-cantidad {
-  margin-top: 20px;
+.cant-container {
   width: 100%;
-  height: 100%;
+  margin-top: 30px;
 }
 
-.btn-max-container {
+.cant-half {
   width: 33%;
-  height: 40px;
-  float: left;
-  padding-left: 40px;
-}
-.btn-min-container {
-  width: 33%;
-  height: 40px;
-  float: left;
-  padding-left: 10px;
-}
-
-.cant-label-container {
-  width: 33%;
-  height: 40px;
-  padding-left: 20px;
-  padding-top: 12px;
-  float: left;
+  float:left;
   text-align: center;
 }
 
-.cant-label {
+.cant-half-label {
+  width: 33%;
+  float:left;
+  height: 40px;
+  text-align: center;
+  background-color: #64c4af;
   color: white;
-  font-size: 23px;
+  border-radius: 30px;
+}
+
+.cant-label {
+  color:white;
+  margin-top: 8px;
+  margin-bottom: 0px;
 }
 
 .btn-max {
-  border-radius: 50%;
-  border: none;
-  height: 60px;
-  width: 60px;
-  background-color: #18b7be;
+  background-color: transparent;
   color: white;
-  font-weight: bold;
-  font-size: 22px;
-  padding-bottom: 3px;
-}
-
-.btn-min {
-  border-radius: 50%;
-  border: none;
-  height: 60px;
-  width: 60px;
-  background-color: #18b7be;
-  color: white;
-  font-weight: bold;
-  font-size: 23px;
-  padding-bottom: 3px;
+  width: 40px;
+  height: 40px;
 }
 
 .btn-max:hover {
-  background-color: #146f74;
+  background-color: #47b19a;
+}
+
+.btn-min {
+  background-color: transparent;
+  color: white;
+  width: 40px;
+  height: 40px;
 }
 
 .btn-min:hover {
-  background-color: #146f74;
+  background-color: #47b19a;
 }
-
-/*End Boton Cantidad*/
 
 
 /*DropDown*/
@@ -218,7 +182,8 @@ img {
   margin-left: 20px;
   margin-bottom: 15px;
   margin-right: 220px;
-  padding-left: 120px;
+  padding-left: 60px;
+
 
 }
 
@@ -278,36 +243,6 @@ img {
 
 .dropdown-content a:hover {background-color: #ddd; color: #000000;}
 
-.desc-container {
-  height: 60px;
-}
-
-/*1366px*/
-@media screen and (max-width:1366px) {
-
-  .btn-max-container {
-
-    padding-left: 10px;
-  }
-
-  .banner-title {
-    font-size: 100px;
-  }
-
-  .list-item-container {
-    padding-left: 30px;
-  }
-
-  .item-image {
-    height: 400px;
-  }
-
-  .desc-container {
-    height: 90px;
-  }
 
 
-  .filter-container {
-    padding-left: 30px;
-  }
-}
+

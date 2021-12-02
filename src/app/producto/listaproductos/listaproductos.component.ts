@@ -30,10 +30,10 @@ export class ListaproductosComponent implements OnInit {
 
   addToCart(item: Producto, productoCantlleva) {//Añade productos al cart
     if (productoCantlleva == 0) {  //Si no hay disponible o la cantidad es 0 no lo hace
-      window.alert('Producto no Disponible');
+      swal("Cantidad no Valida", "", "error");
     } else {
       this.cartService.addToCart(item);
-      window.alert('Su producto a sido añadido al carrito!');
+      swal("Producto Agregado", "", "success");
     }
 
   }

@@ -1,4 +1,7 @@
 
+
+
+
 <nav class="navbar fixed-top" (scroll)="onWindowScroll()">
   <div class="nav-item">
     <p class="nav-title">Verdureria la Ficticia</p>
@@ -6,7 +9,7 @@
   <div class="nav-item">
     <p class="nav-shop">
       <a routerLink="/producto/lista">
-        Home
+        Inicio
       </a>
     </p>
   </div>
@@ -14,12 +17,7 @@
     <a routerLink="/producto/checkout">
       <div class="nav-checkout">
         <div class="icon-container">
-          <div class="icon-half-cant" id="icon-cant">
-            <span>{{items.length}}</span>
-          </div>
-          <div class="icon-half-icon">
-            <em class=" icon material-icons" id="icon">shopping_cart</em>
-          </div>
+          <em class=" icon material-icons" id="icon">shopping_cart</em>
         </div>
       </div>
     </a>

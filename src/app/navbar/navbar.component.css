@@ -1,9 +1,8 @@
 .navbar {
-  height: 190px;
+  height: 100px;
   width: 100%;
   background-color: transparent;
   transition: all ease-in-out 250ms;
-
 }
 
 .bg-primary-g{
@@ -13,10 +12,9 @@
 
 .nav-item {
   width: 33%;
-  line-height: 120px;
-  height: 120px;
+  line-height: 90px;
+  height: 90px;
   text-align: center;
-
 }
 
 .nav-title {
@@ -29,7 +27,7 @@
 
 .nav-shop {
   font-family: Anton;
-  font-size: 40px;
+  font-size: 35px;
   color: white;
 }
 
@@ -39,26 +37,6 @@
   color: white;
 }
 
-.nav-shop a:hover {
-  color: white;
-}
-
-.nav-shop a::before {
-  content: '';
-  display: block;
-  height: 5px;
-  background-color: white;
-  margin-left: 296px;
-
-  position: absolute;
-  width: 0%;
-
-  transition: all ease-in-out 250ms;
-
-}
-.nav-shop a:hover::before {
-  width: 80px;
-}
 
 /* --- End Home Item*/
 
@@ -67,8 +45,8 @@
 /* --- CheckOut Item*/
 .nav-checkout {
   width: 100%;
-  height: 100%;
-  padding-left: 260px;
+  height: 95%;
+  padding-left: 160px;
 }
 
 
@@ -76,29 +54,12 @@
 
 /* - Icon Container*/
 .icon-container {
-  width: 100%;
+  width: 200px;
   height: 100%;
   border-radius: 300px;
   float: left;
-  padding-bottom: 30px;
   background-color: white;
-}
-
-.icon-half-cant {
-  height: 50%;
-  padding-left: 35px;
-  padding-top: 30px;
-  line-height: 50%;
-  font-family: Anton;
-  color: #178CA4;
-}
-.icon-half-icon {
-  height: 50%;
-  line-height: 50%;
-}
-
-.icon-q {
-  font-size: 25px;
+  padding-top: 15px;
 }
 
 .icon {
@@ -120,23 +81,3 @@
 }
 
 /* --- End CheckOut*/
-
-
-
-/*1366px*/
-@media screen and (max-width:1366px) {
-  .icon-container {
-    width: 100%;
-  }
-
-  .nav-checkout {
-    width: 100%;
-    height: 100%;
-    padding-left: 120px;
-  }
-
-  .nav-shop a::before {
-    margin-left: 180px;
-  }
-
-}

@@ -1,3 +1,4 @@
+
 <div class="atr-container">
   <div class="atr-item-container">
     <div class="atr-item-half">
@@ -7,13 +8,15 @@
       <p class="atr-text"> Cantidad </p>
     </div>
     <div class="atr-item-half">
-      <p class="atr-text"> Precio Unidad </p>
+      <p class="atr-text"> Precio </p>
     </div>
     <div class="atr-item-half">
-      <p class="atr-text"> Precio Total </p>
+      <p class="atr-text"> SubTotal </p>
     </div>
   </div>
 </div>
+
+
 <div class="check-container">
   <div *ngFor="let item of items">
     <div class="item-container">
@@ -40,9 +43,16 @@
       </div>
     </div>
   </div>
+  <div class="item-container-btn">
+    <button class="btn" [routerLink]="['/usuario/create']" type="button">
+      Comprar
+    </button>
+  </div>
 </div>
-<button class="btn" [routerLink]="['/usuario/create']" type="button">
-  Comprar
-</button>
+
+
+
+
+
 
 

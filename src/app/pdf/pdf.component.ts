@@ -3,7 +3,8 @@ import { Facturas } from '../producto/service/facturas/facturas';
 import { FacturasService } from '../producto/service/facturas/facturas.service';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
-{{  }}
+import { title } from 'process';
+{ { } }
 //Igualar las fuentes para el pdf
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
@@ -36,10 +37,11 @@ export class PdfComponent implements OnInit {
       for (let index = 0; index < this.desglose.length; index++) {
         const element = this.desglose[index];
         this.mon_tot += element.pre_tot;
-
       }
+
       console.log(this.facturas[0]);
     })
+
   }
 
   //Metodo para descargar el pdf
@@ -53,25 +55,32 @@ export class PdfComponent implements OnInit {
       this.desg_pro[index + 1] = [element.producto.nom];
       this.desg_pre[index + 1] = [element.producto.pre_uni];
       this.desg_sub[index + 1] = [element.pre_tot];
-      this.mon_tot += element.pre_tot;
-
     }
     //Creacion del documento y formato
     const documentDefinition = {
+      //Contenido del PDF
+      info: {
+        title: 'Factura'
+      },
+
+
       content: [
         { text: 'La Ficticia', style: 'Tit' },
+
         {
           text: [
             { text: 'Número Factura: ', style: 'Cue' },
             { text: this.facturas[0].id, style: 'Cue' }
           ]
         },
+
         {
           text: [
             { text: '\n Cliente: ', style: 'Cue' },
             { text: this.nom, style: 'Cue' }
           ]
         },
+
         {
           text: [
             { text: 'Dirección: ', style: 'Cue' },
@@ -80,6 +89,7 @@ export class PdfComponent implements OnInit {
         },
 
         { text: '\n', style: 'Cue' },
+
         {
           table: {
             headerRows: 1,
@@ -94,6 +104,8 @@ export class PdfComponent implements OnInit {
           }
         }
       ],
+
+      //Estilos para el PDF
       styles: {
         Tit: {
           fontSize: 18,
@@ -108,6 +120,6 @@ export class PdfComponent implements OnInit {
       }
     };
     //Crea el pdf y lo descarga
-    pdfMake.createPdf(documentDefinition).download();
+    pdfMake.createPdf(documentDefinition).download('Factura.pdf');
   }
 }

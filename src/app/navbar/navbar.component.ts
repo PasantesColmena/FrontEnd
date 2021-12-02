@@ -22,19 +22,16 @@ export class NavbarComponent{
   onWindowScroll() {
     /* NavBar */
     let element1 = document.querySelector('nav');
-    /* Icon Cantidad */
-    let element2 = document.getElementById('icon-cant');
     /* Icon Carrito */
     let element3 = document.getElementById('icon');
 
     /* Condiciones para el cambio de color segun la altura del scroll */
       if (window.pageYOffset > 1) {
         element1.classList.add('bg-primary-g');
-        element2.classList.add('btn-color-cant');
+
         element3.classList.add('btn-color-icon');
       } else {
         element1.classList.remove('bg-primary-g');
-        element2.classList.remove('btn-color-cant');
         element3.classList.remove('btn-color-icon');
       }
     }

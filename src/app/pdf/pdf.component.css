@@ -1,7 +1,7 @@
 .fact-container {
     padding-top: 250px;
-    padding-left: 500px;
-    padding-right: 500px;
+    padding-left: 300px;
+    padding-right: 300px;
     width: auto;
 }
 
@@ -51,7 +51,7 @@
   color: white;
   font-size: 20px;
   background-color: #072a40;
-  margin-bottom: 30px;
+  border-bottom: 1px solid #041c2b;
 }
 
 /*Under*/
@@ -88,13 +88,3 @@
   margin-top: 10px;
 }
 
-/*1366px*/
-@media screen and (max-width:1366px) {
-  .fact-container {
-    padding-top: 250px;
-    padding-left: 250px;
-    padding-right: 250px;
-    width: auto;
-}
-
-}

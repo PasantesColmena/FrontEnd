@@ -11,18 +11,25 @@ export class CartService {
   totalCant = 0;
 
   addToCart(product: Producto) {
+
+    for (let item = 0; item < this.items.length; item++) {
+      const element = this.items[item];
+      if (element.id === product.id) {
+        this.deleteFromCart(element);
+      }
+    }
     this.items.push(product);
   }
 
-  acumPrecio(price,cant) {
+  acumPrecio(price, cant) {
     this.totalPrecio += price * cant;
   }
 
   getTotalPrecio() {
     this.totalPrecio = 0;
-    for (let item = 0; item < this.items.length; item ++) {
+    for (let item = 0; item < this.items.length; item++) {
       const element = this.items[item];
-      this.totalPrecio += element.pre_uni*element.cantlleva;
+      this.totalPrecio += element.pre_uni * element.cantlleva;
     }
     return this.totalPrecio;
   }
@@ -43,14 +50,15 @@ export class CartService {
     this.items = [];
     this.totalPrecio = 0;
     this.totalCant = 0;
+
     return this.items;
 
   }
 
   deleteFromCart(itemid) {
-    this.items.forEach( (item, index) => {
-      if(item === itemid)
-        this.items.splice(index,1);
+    this.items.forEach((item, index) => {
+      if (item === itemid)
+        this.items.splice(index, 1);
     });
   }
 
