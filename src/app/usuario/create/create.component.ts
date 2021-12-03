@@ -7,7 +7,7 @@ import { CartService } from '../../producto/service/cart/cart.service';
 import { FacturasService } from 'src/app/producto/service/facturas/facturas.service';
 import { Desglose, Facturas } from 'src/app/producto/service/facturas/facturas';
 import { Usuario } from '../usuario';
-import swal from 'sweetalert';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-create',
@@ -49,7 +49,7 @@ export class CreateComponent implements OnInit {
     this.fact.toString();
     console.log(Object.assign({}, this.fact));
     this.facturaService.createFactura(Object.assign({}, this.fact)).subscribe(res => {
-      swal("Su compra esta siendo procesada...", "", "info");
+      Swal.fire("Su compra esta siendo procesada...", "", "info");
       for (let item = 0; item < this.items.length; item++) {
         const element = this.items[item];
         this.desg['facturas_id'] = 0;
@@ -59,7 +59,7 @@ export class CreateComponent implements OnInit {
         this.facturaService.createDesglose(Object.assign({}, this.desg)).subscribe(res => {
           console.log('Desglose creado correctamente!');
           if (item===this.items.length-1){
-            swal("Su compra ha sido realizada", "", "success");
+            Swal.fire("Su compra ha sido realizada", "", "success");
             this.cartService.clearCart();
             this.router.navigate(['producto/pdf']);
           }
