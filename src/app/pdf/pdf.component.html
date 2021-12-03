@@ -47,9 +47,9 @@
     <div class="under-container">
       <div class="btn-container">
         <p>Descargar Factura</p>
-        <button (click)="downloadPdf()" class="btn" style="margin-bottom: 20px;">
+        <a href="http://localhost:8000/api/facturas/pdf" class="btn" style="margin-bottom: 20px;">
             <em class=" icon material-icons" id="icon">download</em>
-        </button>
+        </a>
       </div>
       <div class="tot-container">
         <p>Precio Total: {{ mon_tot }}</p>

@@ -42,6 +42,12 @@ export class FacturasService {
         catchError(this.errorHandler)
       )
   }
+  descargaPDF(): Observable<any[]> {
+    return this.httpClient.get<any[]>(this.apiURL+'pdf')
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
   errorHandler(error) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
