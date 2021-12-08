@@ -5,19 +5,24 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { ListaproductosComponent } from './listaproductos/listaproductos.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { PdfComponent } from './pdf/pdf.component';
 
-import { ProductoRoutingModule } from './producto-routing.module';
+
+import { ClientesRoutingModule } from './clientes-routing.module';
 
 
 @NgModule({
   declarations: [
     ListaproductosComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    NavbarComponent,
+    PdfComponent
   ],
   imports: [
     CommonModule,
     HttpClientModule,
-    ProductoRoutingModule
+    ClientesRoutingModule
   ]
 })
-export class ProductoModule { }
+export class ClienteModule { }

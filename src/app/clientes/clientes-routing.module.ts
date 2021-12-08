@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ListaproductosComponent } from './listaproductos/listaproductos.component';
 import { CheckoutComponent } from './checkout/checkout.component';
-import { PdfComponent } from '../pdf/pdf.component';
+import { PdfComponent } from './pdf/pdf.component';
 
 const routes: Routes = [
   { path: '', redirectTo : 'producto/lista/0', pathMatch: 'full'},
@@ -17,4 +17,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ProductoRoutingModule { }
+export class ClientesRoutingModule { }

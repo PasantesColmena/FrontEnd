@@ -1,5 +1,5 @@
 import { Component, HostListener } from '@angular/core';
-import { CartService } from '../producto/service/cart/cart.service';
+import { CartService } from '../service/cart/cart.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',

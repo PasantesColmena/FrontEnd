@@ -3,9 +3,9 @@ import { UsuarioService } from '../usuario.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import { CartService } from '../../producto/service/cart/cart.service';
-import { FacturasService } from 'src/app/producto/service/facturas/facturas.service';
-import { Desglose, Facturas } from 'src/app/producto/service/facturas/facturas';
+import { CartService } from '../../../clientes/service/cart/cart.service';
+import { FacturasService } from '../../../clientes/service/facturas/facturas.service';
+import { Desglose, Facturas } from '../../../clientes/service/facturas/facturas';
 import { Usuario } from '../usuario';
 import Swal from 'sweetalert2'
 

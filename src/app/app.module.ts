@@ -6,26 +6,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { UsuarioModule } from './usuario/usuario.module';
-import { NavbarComponent } from './navbar/navbar.component';
-import { ProductoModule } from './producto/producto.module';
-import { PdfComponent } from './pdf/pdf.component';
-
-
+import { UsuarioModule } from './paginaprincipal/usuario/usuario.module';
+import { ClienteModule } from './clientes/clientes.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    PdfComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    NgbModule,
     AppRoutingModule,
     UsuarioModule,
-    ProductoModule,
-    HttpClientModule,
-    NgbModule
+    ClienteModule,
   ],
   bootstrap: [AppComponent]
 })
