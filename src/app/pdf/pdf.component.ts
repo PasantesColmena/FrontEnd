@@ -1,12 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Facturas } from '../producto/service/facturas/facturas';
 import { FacturasService } from '../producto/service/facturas/facturas.service';
-import pdfMake from 'pdfmake/build/pdfmake';
-import pdfFonts from 'pdfmake/build/vfs_fonts';
-import { title } from 'process';
-{ { } }
-//Igualar las fuentes para el pdf
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
 
 @Component({
   selector: 'app-pdf',
