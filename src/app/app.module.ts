@@ -6,8 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { UsuarioModule } from './paginaprincipal/usuario/usuario.module';
-import { ClienteModule } from './clientes/clientes.module';
+import { AdministrativoModule } from './administrativo/administrativo.module';
+import { ClientesModule } from './clientes/clientes.module';
+import { SuperusuarioModule } from './superusuario/superusuario.module';
+import { PaginaPrincipalModule } from './paginaprincipal/paginaprincipal.module';
 
 @NgModule({
   declarations: [
@@ -18,8 +20,10 @@ import { ClienteModule } from './clientes/clientes.module';
     HttpClientModule,
     NgbModule,
     AppRoutingModule,
-    UsuarioModule,
-    ClienteModule,
+    AdministrativoModule,
+    ClientesModule,
+    SuperusuarioModule,
+    PaginaPrincipalModule
   ],
   bootstrap: [AppComponent]
 })

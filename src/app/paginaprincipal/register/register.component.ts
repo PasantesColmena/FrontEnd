@@ -3,29 +3,31 @@ import { UsuarioService } from '../usuario.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import { CartService } from '../../../clientes/service/cart/cart.service';
-import { FacturasService } from '../../../clientes/service/facturas/facturas.service';
-import { Desglose, Facturas } from '../../../clientes/service/facturas/facturas';
-import { Usuario } from '../usuario';
+import { CartService } from '../../clientes/service/cart/cart.service';
+import { FacturasService } from '../../clientes/service/facturas/facturas.service';
+import { Desglose, Facturas } from '../../clientes/service/facturas/facturas';
 import Swal from 'sweetalert2'
 
 @Component({
-  selector: 'app-create',
-  templateUrl: './create.component.html',
-  styleUrls: ['./create.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class CreateComponent implements OnInit {
 
-  form: FormGroup;
+export class RegisterComponent implements OnInit {
+
   fact: Facturas[] = [];
   desg: Desglose[] = [];
   items = this.cartService.getItems();
+  form: FormGroup;
 
-  constructor(public usuarioService: UsuarioService,
+
+  constructor(
+    public usuarioService: UsuarioService,
     private router: Router,
     private cartService: CartService,
-    private facturaService: FacturasService) {
-  }
+    private facturaService: FacturasService
+  ) { }
 
   ngOnInit(): void {
 
@@ -64,16 +66,8 @@ export class CreateComponent implements OnInit {
             this.router.navigate(['producto/pdf']);
           }
         })
-
       }
       console.log('Factura creada correctamente!');
-
     })
-
-
-
-
   }
-
 }
-

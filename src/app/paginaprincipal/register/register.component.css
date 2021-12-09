@@ -7,17 +7,17 @@ alert-danger{
   width: 100%;
 }
 
-.form-container {
-  padding-top: 200px;
-}
 
 .title {
   font-size: 100px;
   text-align: center;
   color: #072a40;
   text-shadow: #18b7be 6px 0px;
-  margin-bottom: 80px;
+}
 
+.btn-log{
+  text-decoration: none;
+  outline: none;
 }
 
   input[type="file"] {

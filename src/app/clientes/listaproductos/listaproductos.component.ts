@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2'
 
@@ -98,7 +98,25 @@ export class ListaproductosComponent implements OnInit {
         (item) => item.id === productIdFromRoute
       );
     })
-
-
   }
+
+    /* Declara el evento scroll del HostListener */
+    @HostListener('window:scroll', ['$event'])
+
+    onWindowScroll() {
+      /* NavBar */
+      let element1 = document.querySelector('nav');
+      /* Icon Carrito */
+      let element3 = document.getElementById('icon');
+
+      /* Condiciones para el cambio de color segun la altura del scroll */
+        if (window.pageYOffset > 1) {
+          element1.classList.add('bg-primary-g');
+
+          element3.classList.add('btn-color-icon');
+        } else {
+          element1.classList.remove('bg-primary-g');
+          element3.classList.remove('btn-color-icon');
+        }
+    }
 }

@@ -1,4 +1,80 @@
 
+/* -- NavBar*/
+
+.navbar {
+  height: 100px;
+  width: 100%;
+  background-color: transparent;
+  transition: all ease-in-out 250ms;
+}
+
+.bg-primary-g{
+  background-color: #072a40;
+}
+
+
+.nav-item {
+  width: 33%;
+  line-height: 90px;
+  height: 90px;
+  text-align: center;
+}
+
+.nav-title {
+  font-family: Anton;
+  font-size: 40px;
+  color: white;
+}
+
+
+.nav-shop {
+  font-family: Anton;
+  font-size: 35px;
+  color: white;
+}
+
+.nav-shop a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+}
+
+
+.nav-checkout {
+  width: 100%;
+  height: 95%;
+  padding-left: 100px;
+}
+
+
+
+.icon-container {
+  width: 200px;
+  height: 100%;
+  border-radius: 300px;
+  float: left;
+  background-color: white;
+  padding-top: 15px;
+}
+
+.icon {
+  color: #178CA4;
+  font-size: 60px;
+}
+
+
+
+.btn-color-cant  {
+  color: #072a40;
+}
+
+.btn-color-icon  {
+  color: #072a40;
+}
+
+
+/* -- End NavBar*/
+
 
 .list-container {
   padding-top: 120px;

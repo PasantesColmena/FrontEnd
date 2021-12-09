@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
-import { ListaproductosComponent } from './listaproductos/listaproductos.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { ListaproductosComponent } from './listaproductos/listaproductos.component';
 import { PdfComponent } from './pdf/pdf.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo : 'producto/lista/0', pathMatch: 'full'},
@@ -14,7 +15,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class ClientesRoutingModule { }
