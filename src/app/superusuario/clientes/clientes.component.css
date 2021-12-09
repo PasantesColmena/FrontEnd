@@ -1,0 +1,25 @@
+/* -- NavBar*/
+.navbar {
+  height: 100px;
+  width: 100%;
+  background-color: #072a40;
+  display: flex;
+  transition: all ease-in-out 250ms;
+}
+
+.item-container {
+  display: flex;
+  width: 25%;
+  padding-left: 200px;
+}
+
+.item a{
+  font-size: 30px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: white;
+}
+
+/* -- End NavBar*/

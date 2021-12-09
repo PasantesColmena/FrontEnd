@@ -1,3 +1,9 @@
+.main-register {
+  width: 100%;
+  padding: 20px;
+  margin: auto;
+}
+
 .alert{
   position: absolute;
   width: 44.8%;
