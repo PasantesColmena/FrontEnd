@@ -1,19 +1,23 @@
-<h1>Stock de la Tienda</h1>
+
+  <div class="item-title-box">
+    <p class="item-title-name">Stock de la Tienda</p>
+  </div>
+
 
 <!-- Filtro Empieza -->
 <div class="filter-container">
-    <div class="dropdown">
-      <button class="dropdown-btn">
-        Filtro
-      </button>
-      <div class="dropdown-content">
-        <a class="dropdown-item" (click)="getAll()"> Todos </a>
-        <div *ngFor="let categoria of categorias">
-          <a class="dropdown-item" (click)="getAllCat(categoria.id)">{{ categoria.nom }}</a>
-        </div>
+  <div class="dropdown">
+    <button class="dropdown-btn">Filtro</button>
+    <div class="dropdown-content">
+      <a class="dropdown-item" (click)="getAll()"> Todos </a>
+      <div *ngFor="let categoria of categorias">
+        <a class="dropdown-item" (click)="getAllCat(categoria.id)">{{
+          categoria.nom
+        }}</a>
       </div>
     </div>
   </div>
+</div>
 <!-- Filtro Termina -->
 
 <div class="list-item-container">
@@ -31,33 +35,12 @@
         <div class="item-title-box">
           <h1 class="item-title-name">{{ producto.nom }}</h1>
         </div>
-        <!-- Descripción -->
-        <div class="desc-container">
-          <h1 class="item-atr">Descripción:</h1>
-          <p class="item-text">{{ producto.desc }}</p>
-        </div>
-        <!-- Precio -->
-        <h1 class="item-atr">Precio:</h1>
-        <p class="item-text">₡{{ producto.pre_uni }}</p>
-        <!-- Categoria -->
-        <h1 class="item-atr">Categoria:</h1>
-        <p class="item-text">{{ producto.categoria.nom }}</p>
 
         <!-- Botones -->
         <!-- Agregar Unidad -->
-        <button
-          type="button"
-          class="btn-agregar"
-        >
-          Agregar Unidad(es)
-        </button>
+        <button type="button" class="btn-agregar">Agregar Unidad(es)</button>
         <!-- Eliminar Unidad -->
-        <button
-          type="button"
-          class="btn-agregar"
-        >
-          Eliminar Unidad(es)
-        </button>
+        <button type="button" class="btn-agregar">Eliminar Unidad(es)</button>
         <div>
           <div class="cant-container">
             <div class="cant-half">
@@ -84,15 +67,8 @@
           </div>
         </div>
         <!-- Eliminar Producto -->
-        <button
-          type="button"
-          class="btn-agregar"
-        >
-          Eliminar Producto
-        </button>
+        <button type="button" class="btn-agregar">Eliminar Producto</button>
       </div>
     </div>
   </div>
 </div>
-
-<p>stock works</p>

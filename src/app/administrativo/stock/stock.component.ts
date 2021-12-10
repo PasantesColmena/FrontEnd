@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 import { Producto } from '../service/productos/productos';
 import { ProductoService } from '../service/productos/productos.service';
@@ -8,15 +8,12 @@ import { CartService } from '../service/cart/cart.service';
 import { CategoriaService } from '../service/categorias/categorias.service';
 import { Categorias } from 'src/app/clientes/service/categorias/categorias';
 
-
 @Component({
   selector: 'app-stock',
   templateUrl: './stock.component.html',
-  styleUrls: ['./stock.component.css']
+  styleUrls: ['./stock.component.css'],
 })
-
 export class StockComponent implements OnInit {
-
   productos: Producto[] = [];
   categorias: Categorias[] = [];
   item: Producto | undefined;
@@ -26,8 +23,23 @@ export class StockComponent implements OnInit {
     private route: ActivatedRoute,
     private cartService: CartService,
     public productoService: ProductoService,
-    public categoriaService: CategoriaService,
+    public categoriaService: CategoriaService
   ) { }
+
+  addToCart(item: Producto, productoCantlleva) {//Añade productos al cart
+    if (productoCantlleva == 0) {  //Si no hay disponible o la cantidad es 0 no lo hace
+      Swal.fire('Cantidad no Valida', '', 'error');
+
+    } else {
+      this.cartService.addToCart(item);
+      Swal.fire("Producto Agregado", "", "success");
+    }
+
+  }
+
+  acumularTotalPrecio(price,cant) {
+    this.cartService.acumPrecio(price,cant);
+  }
 
   acumularTotalCant(cant) {
     this.cartService.acumCant(cant);
@@ -66,6 +78,7 @@ export class StockComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     /*Consigue el id de la ruta*/
     const routeParams = this.route.snapshot.paramMap;
     const productIdFromRoute = Number(routeParams.get('productoId'));
@@ -84,4 +97,23 @@ export class StockComponent implements OnInit {
     })
   }
 
+    /* Declara el evento scroll del HostListener */
+    @HostListener('window:scroll', ['$event'])
+
+    onWindowScroll() {
+      /* NavBar */
+      let element1 = document.querySelector('nav');
+      /* Icon Carrito */
+      let element3 = document.getElementById('icon');
+
+      /* Condiciones para el cambio de color segun la altura del scroll */
+        if (window.pageYOffset > 1) {
+          element1.classList.add('bg-primary-g');
+
+          element3.classList.add('btn-color-icon');
+        } else {
+          element1.classList.remove('bg-primary-g');
+          element3.classList.remove('btn-color-icon');
+        }
+    }
 }
