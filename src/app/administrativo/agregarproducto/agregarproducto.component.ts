@@ -9,12 +9,11 @@ import { Desglose, Facturas } from '../../service/facturas/facturas';
 import Swal from 'sweetalert2'
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-agregarproducto',
+  templateUrl: './agregarproducto.component.html',
+  styleUrls: ['./agregarproducto.component.css']
 })
-
-export class RegisterComponent implements OnInit {
+export class AgregarproductoComponent implements OnInit {
 
   fact: Facturas[] = [];
   desg: Desglose[] = [];
@@ -33,11 +32,9 @@ export class RegisterComponent implements OnInit {
 
     this.form = new FormGroup({
       nom: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ \-\']+')]),
-      email: new FormControl('', [Validators.required]),
-      ced: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
-      num: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
-      dir: new FormControl('', [Validators.required, Validators.pattern('^[0-9a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ \-\']+')]),
-      password: new FormControl('', [Validators.required]),
+      des: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ \-\']+')]),
+      pre: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
+      cat: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ \-\']+')]),
     });
   }
   get f() {
@@ -46,8 +43,8 @@ export class RegisterComponent implements OnInit {
   submit() {
     console.log(this.form.value);
     this.usuarioService.createUsuario(this.form.value).subscribe(res => {
-      console.log('Usuario creado correctamente!');
-      this.router.navigate(['paginaprincipal/login']);
+      console.log('Producto Agregado Correctamente!');
+      this.router.navigate(['admin/stock']);
     })
     // this.fact['usuario_id'] = 0;
     // this.fact['tot'] = this.cartService.getTotalPrecio();

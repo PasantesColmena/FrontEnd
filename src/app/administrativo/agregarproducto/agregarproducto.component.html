@@ -1,0 +1,82 @@
+<div class="main-register">
+    <h1 class="title">Producto</h1>
+    <form [formGroup]="form" class="form" (ngSubmit)="submit()">
+
+      <!-- Imagen -->
+
+
+      <!-- Nombre Producto -->
+      <div class="field required px-1">
+        <label class="label-atr" for="nom">Nombre Producto</label>
+        <input
+          class="text-input"
+          formControlName="nom"
+          id="nom"
+          type="nom"
+          placeholder="Manzana"
+        />
+        <div *ngIf="f.nom.touched && f.nom.invalid" class="alert alert-danger">
+          <div *ngIf="f.nom.errors.required">Nombre es requerido.</div>
+          <div *ngIf="f.nom.errors.pattern">
+            El Nombre solo dede Contener Letras.
+          </div>
+        </div>
+      </div>
+
+      <!-- Descripcion Producto -->
+      <div class="field required px-1">
+        <label class="label-atr" for="des">Descripcion</label>
+        <input
+          class="text-input"
+          formControlName="des"
+          id="des"
+          type="text"
+          placeholder="Fruto proveniente del manzano"
+        />
+        <div *ngIf="f.des.touched && f.des.invalid" class="alert alert-danger">
+          <div *ngIf="f.des.errors.required">Descripcion es requerida.</div>
+          <div *ngIf="f.des.errors.pattern">La Descripcion solo Contiene Letras.</div>
+        </div>
+      </div>
+
+      <!-- Precio Producto -->
+      <div class="field required px-1">
+        <label class="label-atr" for="pre">Precio Unitario</label>
+        <input
+          class="text-input"
+          formControlName="pre"
+          id="pre"
+          type="text"
+          placeholder="250"
+        />
+        <div *ngIf="f.pre.touched && f.pre.invalid" class="alert alert-danger">
+          <div *ngIf="f.pre.errors.required">Precio es requerido.</div>
+          <div *ngIf="f.pre.errors.pattern">
+            El Precio Unitario solo Contiene Numeros
+          </div>
+        </div>
+      </div>
+
+      <!-- Categoria Producto -->
+      <div class="field required px-1">
+        <label class="label-atr" for="cat">Categoria</label>
+        <input
+          class="text-input"
+          formControlName="cat"
+          id="cat"
+          type="text"
+          placeholder="Fruta"
+        />
+        <div *ngIf="f.cat.touched && f.cat.invalid" class="alert alert-danger">
+          <div *ngIf="f.cat.errors.required">Categoria es requerida.</div>
+        </div>
+      </div>
+
+      <!-- Boton de subida -->
+      <div class="field-half required px-1">
+        <button class="button" type="submit" [disabled]="!form.valid">
+          Agregar Producto
+        </button>
+      </div>
+    </form>
+    </div>

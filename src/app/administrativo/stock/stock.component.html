@@ -1,24 +1,33 @@
-<h1></h1>
-
-<div class="titulo-box">
-  <p class="titulo">Stock de la Tienda</p>
-</div>
-
-<!-- Filtro Empieza -->
-<div class="filter-container">
-  <div class="dropdown">
-    <button class="dropdown-btn">Filtro</button>
-    <div class="dropdown-content">
-      <a class="dropdown-item" (click)="getAll()"> Todos </a>
-      <div *ngFor="let categoria of categorias">
-        <a class="dropdown-item" (click)="getAllCat(categoria.id)">{{
-          categoria.nom
-        }}</a>
+<nav class="navbar fixed-top" (scroll)="onWindowScroll()">
+  <div class="nav-item">
+    <p class="nav-title">Stock de la Tienda</p>
+  </div>
+  <div class="nav-item">
+    <div class="filter-container">
+      <div class="dropdown">
+        <button class="dropdown-btn">Filtro</button>
+        <div class="dropdown-content">
+          <a class="dropdown-item" (click)="getAll()"> Todos </a>
+          <div *ngFor="let categoria of categorias">
+            <a class="dropdown-item" (click)="getAllCat(categoria.id)">{{
+              categoria.nom
+            }}</a>
+          </div>
+        </div>
       </div>
     </div>
+    <!-- Filtro Termina -->
   </div>
-</div>
-<!-- Filtro Termina -->
+  <div class="nav-item">
+    <div class="agregar-prod">
+      <p routerLink="/admin/stock/agregar"> Nuevo Producto </p>
+    </div>
+  </div>
+</nav>
+
+<h1></h1>
+<h1></h1>
+<h1></h1>
 
 <div class="list-item-container">
   <div *ngFor="let producto of productos">

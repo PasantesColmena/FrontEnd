@@ -33,18 +33,32 @@
   margin: 0;
 }
 
+/* Item Container Half */
+
+
+
 .content-half-items {
   margin-top: 150px;
   height: 800px;
   width: 100%;
 }
 
-.content-half-screen {
-  margin-top: 130px;
-  background-color: rgb(255, 0, 136);
-  height: 800px;
-  width: 100%;
+
+
+/* ------ Atributos*/
+
+.atr-content  {
+  width: 60%;
+  display: flex;
+  height: auto;
+  margin-bottom: 20px;
+  color: white;
+  justify-content: space-around ;
+
+  font-size: 1.2rem;
+  font-weight: bold;
 }
+
 
 /* ----------- Item*/
 
@@ -123,5 +137,134 @@
   outline: none;
 }
 
+/*Btn Agregar*/
+
+.btn-content {
+  color: white;
+  width: 100%;
+}
+
+.btn-agregar {
+  width: 20%;
+  padding: 10px 40px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  background: #00d659da;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+  outline: none;
+}
+
+
 /* ----------- End Item*/
 
+/* Window Container Half */
+
+.content-half-window {
+  margin-top: 140px;
+  height: 800px;
+  width: 100%;
+  padding:0px 50px;
+}
+
+/* ----------- Window*/
+
+.window-container {
+  background-color: #072a40;
+  padding: 30px 60px;
+  width: 100%;
+  border-radius: 20px;
+  height: auto;
+}
+
+.form-container {
+  width: 100%;
+  display: flex;
+
+}
+
+/* ----- Form Add*/
+
+
+.form-add {
+  width: 100%;
+  display: none;
+}
+
+.form-add h2 {
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.form-add input {
+  width: 100%;
+  height: 55px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: solid rgb(224, 224, 224);
+  border-radius: 8px;
+  background: transparent;
+  font-size: 16px;
+  outline: none;
+  color:white
+}
+
+.form-add button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px 40px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  background: #18b7be;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+  outline: none;
+}
+
+/* ----- Form Edit*/
+
+.form-edit {
+  width: 100%;
+}
+
+.form-edit h2 {
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.form-edit input {
+  width: 100%;
+  height: 55px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: solid rgb(224, 224, 224);
+  border-radius: 8px;
+  background: transparent;
+  font-size: 16px;
+  outline: none;
+  color:white
+}
+
+.form-edit button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px 40px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  background: #18b7be;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+  outline: none;
+}
+
+/* ----------- End Window*/

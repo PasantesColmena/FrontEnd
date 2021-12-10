@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +11,8 @@ import { ClientesModule } from './clientes/clientes.module';
 import { SuperusuarioModule } from './superusuario/superusuario.module';
 import { PaginaPrincipalModule } from './paginaprincipal/paginaprincipal.module';
 
+
+import { AuthHeaderInterceptor } from './service/shared/auth-header.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +26,13 @@ import { PaginaPrincipalModule } from './paginaprincipal/paginaprincipal.module'
     ClientesModule,
     SuperusuarioModule,
     PaginaPrincipalModule
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthHeaderInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
