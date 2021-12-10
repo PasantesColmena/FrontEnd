@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FacturasService } from '../service/facturas/facturas.service';
+import { FacturasService } from '../../service/facturas/facturas.service';
 
 
 @Component({

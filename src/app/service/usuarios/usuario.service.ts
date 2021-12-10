@@ -38,7 +38,7 @@ export class UsuarioService {
   }
 
   createUsuario(usuario): Observable<Usuario> {
-    return this.httpClient.post<Usuario>(this.apiURL, JSON.stringify(usuario), this.httpOptions)
+    return this.httpClient.post<Usuario>(this.apiURL+'create', JSON.stringify(usuario), this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )

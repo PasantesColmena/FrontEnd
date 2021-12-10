@@ -22,77 +22,32 @@
   <div class="container">
     <div class="content-half-items">
 
-      <!-- Item -->
-      <div class="item-content ">
-        <div class="item-data">
-          <div class="data-id">
-            01
+      <div *ngFor="let user of users">
+        <!-- Item -->
+        <div class="item-content ">
+          <div class="item-data">
+            <div class="data-id">
+              {{user.id}}
+            </div>
+            <div class="data-name">
+              {{user.nom}}
+            </div>
+            <div class="data-type">
+              Admin
+            </div>
           </div>
-          <div class="data-name">
-            Oswald
+          <div class="item-btn-edit">
+            <button class="btn-edit">
+              Editar
+            </button>
           </div>
-          <div class="data-type">
-            Admin
+          <div class="item-btn-delete">+
+            <button class="btn-delete">
+              Eliminar
+            </button>
           </div>
-        </div>
-        <div class="item-btn-edit">
-          <button class="btn-edit">
-            Editar
-          </button>
-        </div>
-        <div class="item-btn-delete">
-          <button class="btn-delete">
-            Eliminar
-          </button>
         </div>
       </div>
-      <div class="item-content ">
-        <div class="item-data">
-          <div class="data-id">
-            01
-          </div>
-          <div class="data-name">
-            Oswald
-          </div>
-          <div class="data-type">
-            Admin
-          </div>
-        </div>
-        <div class="item-btn-edit">
-          <button class="btn-edit">
-            Editar
-          </button>
-        </div>
-        <div class="item-btn-delete">
-          <button class="btn-delete">
-            Eliminar
-          </button>
-        </div>
-      </div>
-      <div class="item-content ">
-        <div class="item-data">
-          <div class="data-id">
-            01
-          </div>
-          <div class="data-name">
-            Oswald
-          </div>
-          <div class="data-type">
-            Admin
-          </div>
-        </div>
-        <div class="item-btn-edit">
-          <button class="btn-edit">
-            Editar
-          </button>
-        </div>
-        <div class="item-btn-delete">
-          <button class="btn-delete">
-            Eliminar
-          </button>
-        </div>
-      </div>
-
     </div>
     <div class="content-half-screen">
 

@@ -2,11 +2,11 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2'
 
-import { Producto } from '../service/productos/productos';
-import { ProductoService } from '../service/productos/productos.service';
-import { CartService } from '../service/cart/cart.service';
-import { CategoriaService } from '../service/categorias/categorias.service';
-import { Categorias } from 'src/app/clientes/service/categorias/categorias';
+import { Producto } from '../../service/productos/productos';
+import { ProductoService } from '../../service/productos/productos.service';
+import { CartService } from '../../service/cart/cart.service';
+import { CategoriaService } from '../../service/categorias/categorias.service';
+import { Categorias } from '../../service/categorias/categorias';
 
 
 @Component({
