@@ -28,8 +28,6 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.authenticationStateService.setAuthState(false);
-    this.tokenAuthService.destroyToken();
     this.form = new FormGroup({
       email: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
@@ -37,7 +35,6 @@ export class LoginComponent implements OnInit {
    }
 
   submit() {
-      console.log("Entro?");
       this.jwtService.logIn(this.form.value).subscribe(
         res => {
           console.log(res);

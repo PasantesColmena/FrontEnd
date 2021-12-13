@@ -44,8 +44,8 @@ export class ListaproductosComponent implements OnInit {
 
   }
 
-  acumularTotalPrecio(price,cant) {
-    this.cartService.acumPrecio(price,cant);
+  acumularTotalPrecio(price, cant) {
+    this.cartService.acumPrecio(price, cant);
   }
 
   acumularTotalCant(cant) {
@@ -65,7 +65,7 @@ export class ListaproductosComponent implements OnInit {
       item.cantlleva = 1;
     } else if (item.cantlleva != undefined) {
       if (item.cantlleva == item.cant)
-        item.cantlleva=item.cantlleva;
+        item.cantlleva = item.cantlleva;
       else
         ++item.cantlleva;
 
@@ -86,8 +86,9 @@ export class ListaproductosComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.jwtService.profile().subscribe((res:any) => {
-    this.user = res;
+    this.jwtService.profile().subscribe((res: any) => {
+      this.user = res;
+      console.log(this.user)
     })
 
     /*Consigue el id de la ruta*/
@@ -108,24 +109,24 @@ export class ListaproductosComponent implements OnInit {
     })
   }
 
-    /* Declara el evento scroll del HostListener */
-    @HostListener('window:scroll', ['$event'])
+  /* Declara el evento scroll del HostListener */
+  @HostListener('window:scroll', ['$event'])
 
-    onWindowScroll() {
-      /* NavBar */
-      let element1 = document.querySelector('nav');
-      /* Icon Carrito */
-      let element3 = document.getElementById('icon');
+  onWindowScroll() {
+    /* NavBar */
+    let element1 = document.querySelector('nav');
+    /* Icon Carrito */
+    let element3 = document.getElementById('icon');
 
-      /* Condiciones para el cambio de color segun la altura del scroll */
-        if (window.pageYOffset > 1) {
-          element1.classList.add('bg-primary-g');
+    /* Condiciones para el cambio de color segun la altura del scroll */
+    if (window.pageYOffset > 1) {
+      element1.classList.add('bg-primary-g');
 
-          element3.classList.add('btn-color-icon');
-        } else {
-          element1.classList.remove('bg-primary-g');
-          element3.classList.remove('btn-color-icon');
-        }
+      element3.classList.add('btn-color-icon');
+    } else {
+      element1.classList.remove('bg-primary-g');
+      element3.classList.remove('btn-color-icon');
     }
+  }
 
 }
