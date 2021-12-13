@@ -8,9 +8,14 @@ import { ProductosComponent } from './productos/productos.component';
 
 
 const routes: Routes = [
+  { path: 'superusuario', redirectTo: 'superusuario/usuarios', pathMatch: 'full'},
+
   { path: 'superusuario/clientes', component: ClientesComponent, pathMatch: 'full'},
+
   { path: 'superusuario/usuarios', component: UsuariosComponent, pathMatch: 'full'},
+
   { path: 'superusuario/facturas', component: FacturasComponent, pathMatch: 'full'},
+
   { path: 'superusuario/productos', component: ProductosComponent, pathMatch: 'full'},
 
 ];

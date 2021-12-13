@@ -22,6 +22,12 @@ export class FacturasService {
 
   constructor(private httpClient: HttpClient) { }
 
+  getAll(): Observable<Facturas[]> {
+    return this.httpClient.get<Facturas[]>(this.apiURL+'getAll')
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
 
   getLast(): Observable<any[]> {
     return this.httpClient.get<any[]>(this.apiURL+'ultima')

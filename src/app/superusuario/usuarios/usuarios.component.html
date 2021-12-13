@@ -46,8 +46,7 @@
           <div class="item-btn-edit">
             <button class="btn-edit"
               type="button"
-              (click)="mostrarFormEditar()"
-              (click)="sendUser(user)"
+              (click)="mostrarFormEditar(user.id)"
               >
               Editar
             </button>
@@ -59,25 +58,26 @@
           </div>
         </div>
       </div>
+
+    </div>
+    <!-- Form Container -->
+    <div class="content-half-window">
       <!-- Btn Agregar -->
       <div class="btn-content">
         <button class="btn-agregar" (click)="mostrarFormAdd()">Agregar</button>
       </div>
-    </div>
-    <!-- Form Container -->
-    <div class="content-half-window">
       <div class="window-container">
         <div class="form-container">
           <!--Editar-->
           <form action="" class="form-edit d-none">
             <h2>Editar</h2>
-            <input type="num" value="1" id="ide">
-            <input type="text" value="Oswald">
-            <input type="text" value="osw2156@gmail.com">
-            <input type="text" value="305420955">
-            <input type="num" value="83701101">
-            <input type="text" value="San Jose">
-            <input type="password" value="Contraseña">
+            <input type="num" id="ide">
+            <input type="text" id="nom">
+            <input type="text" id="email">
+            <input type="text" id="ced">
+            <input type="num" id="num">
+            <input type="text" id="dir">
+            <input type="password" id="pass">
             <input type="text" list="permisos" value="Admin">
             <datalist id="permisos">
               <option value="Administrativo">

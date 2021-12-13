@@ -8,7 +8,7 @@ export class TokenAuthService {
 
   private tokenIssuer = {
     login: 'http://127.0.0.1:8000/api/auth/signin',
-    register: 'http://127.0.0.1:8000/api/auth/signup'
+    register: 'http://127.0.0.1:8000/api/usuario/create'
   }
 
   constructor() { }

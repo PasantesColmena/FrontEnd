@@ -2,12 +2,14 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2'
 
+import { Usuario } from 'src/app/service/usuarios/usuario';
 import { Producto } from '../../service/productos/productos';
 import { ProductoService } from '../../service/productos/productos.service';
 import { CartService } from '../../service/cart/cart.service';
 import { CategoriaService } from '../../service/categorias/categorias.service';
 import { Categorias } from '../../service/categorias/categorias';
-
+import { JwtService } from 'src/app/service/shared/jwt.service';
+import { UsuarioService } from 'src/app/service/usuarios/usuario.service';
 
 @Component({
   selector: 'app-listaproductos',
@@ -20,12 +22,14 @@ export class ListaproductosComponent implements OnInit {
   categorias: Categorias[] = [];
   item: Producto | undefined;
   itemc: Categorias | undefined;
+  user: Usuario;
 
   constructor(
     private route: ActivatedRoute,
     private cartService: CartService,
     public productoService: ProductoService,
     public categoriaService: CategoriaService,
+    public jwtService: JwtService
 
   ) { }
 
@@ -82,6 +86,10 @@ export class ListaproductosComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.jwtService.profile().subscribe((res:any) => {
+    this.user = res;
+    })
+
     /*Consigue el id de la ruta*/
     const routeParams = this.route.snapshot.paramMap;
     const productIdFromRoute = Number(routeParams.get('productoId'));
@@ -119,4 +127,5 @@ export class ListaproductosComponent implements OnInit {
           element3.classList.remove('btn-color-icon');
         }
     }
+
 }

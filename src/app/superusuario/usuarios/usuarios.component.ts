@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/service/usuarios/usuario.service';
 import { Usuario } from 'src/app/service/usuarios/usuario';
 
+
 @Component({
   selector: 'app-usuarios',
   templateUrl: './usuarios.component.html',
@@ -9,7 +10,8 @@ import { Usuario } from 'src/app/service/usuarios/usuario';
 })
 export class UsuariosComponent implements OnInit {
 
-  users: Usuario[] = []
+  users: Usuario[] = [];
+  item: Usuario | undefined;
 
 
   constructor(
@@ -17,22 +19,28 @@ export class UsuariosComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
     this.usuarioService.getAll().subscribe((datau: Usuario[]) => {
       this.users = datau;
     })
-
   }
 
-  sendUser(user) {
-
-  }
-
-
-  mostrarFormEditar() {
+  mostrarFormEditar(userID) {
 
     let formAdd = document.querySelector(".form-add");
     let formEdit = document.querySelector(".form-edit");
+
+    this.item = this.users.find(
+      (item) => item.id === userID
+    );
+
+
+    (<HTMLInputElement>document.getElementById('ide')).value = this.item.id.toString();
+    (<HTMLInputElement>document.getElementById('nom')).value = this.item.nom.toString();
+    // (<HTMLInputElement>document.getElementById('email')).value = this.item.email;
+    (<HTMLInputElement>document.getElementById('ced')).value = this.item.ced.toString();
+    (<HTMLInputElement>document.getElementById('num')).value = this.item.num;
+    (<HTMLInputElement>document.getElementById('dir')).value = this.item.dir.toString();
+    // (<HTMLInputElement>document.getElementById('pass')).value = this.item.password;
 
 
     formEdit.classList.add('d-block');
@@ -40,6 +48,7 @@ export class UsuariosComponent implements OnInit {
 
     formAdd.classList.remove('d-block');
     formEdit.classList.remove('d-none');
+
   }
 
   mostrarFormAdd() {
