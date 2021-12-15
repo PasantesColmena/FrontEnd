@@ -30,8 +30,8 @@ export class FacturasService {
   // }
 
 
-  getAll(): Observable<Facturas[]> {
-    return this.httpClient.get<Facturas[]>(this.apiURL+'getAll')
+  getAll(): Observable<any[]> {
+    return this.httpClient.get<any[]>(this.apiURL+'getAll')
     .pipe(
       catchError(this.errorHandler)
     )
@@ -43,7 +43,12 @@ export class FacturasService {
       catchError(this.errorHandler)
     )
   }
-
+  delete(id){
+    return this.httpClient.delete<Facturas>(this.apiURL +'delete/'+id, this.httpOptions)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
   createFactura(factura): Observable<Facturas> {
     return this.httpClient.post<Facturas>(this.apiURL + 'create/factura', JSON.stringify(factura), this.httpOptions)
       .pipe(

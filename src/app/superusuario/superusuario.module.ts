@@ -7,6 +7,8 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { FacturasComponent } from './facturas/facturas.component';
 import { ProductosComponent } from './productos/productos.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     UsuariosComponent,
@@ -15,7 +17,9 @@ import { ProductosComponent } from './productos/productos.component';
   ],
   imports: [
     CommonModule,
-    SuperusuarioRoutingModule
+    SuperusuarioRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class SuperusuarioModule { }

@@ -45,7 +45,7 @@ export class UsuarioService {
   }
 
   delete(id){
-    return this.httpClient.delete<Usuario>(this.apiURL + id, this.httpOptions)
+    return this.httpClient.delete<Usuario>(this.apiURL +'delete/'+id, this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
@@ -59,5 +59,12 @@ export class UsuarioService {
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
     return throwError(errorMessage);
+  }
+
+  getPermiso(id) {
+    return this.httpClient.get<any>(this.apiURL+'permiso/'+id)
+    .pipe(
+      catchError(this.errorHandler)
+    )
   }
 }

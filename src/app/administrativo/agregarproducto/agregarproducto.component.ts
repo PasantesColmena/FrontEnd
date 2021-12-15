@@ -92,4 +92,7 @@ export class AgregarproductoComponent implements OnInit {
     //   console.log('Factura creada correctamente!');
     // })
   }
+
+
+
 }

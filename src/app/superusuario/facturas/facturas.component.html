@@ -38,7 +38,7 @@
         <div class="item-content">
           <div class="item-data">
             <div class="data-1">
-              {{fact.usuario_id}}
+              {{fact.id}}
             </div>
             <div class="data-2">
               {{fact.usuario.nom}}
@@ -48,7 +48,7 @@
             </div>
           </div>
           <div class="item-btn-delete">
-            <button class="btn-delete">Eliminar</button>
+            <button class="btn-delete" (click)="eliminar(fact.id)">Eliminar</button>
           </div>
         </div>
       </div>

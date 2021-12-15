@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
 
@@ -43,6 +43,63 @@ export class StockComponent implements OnInit {
 
     }
   }
+  aumentarInventario(item:any){
+    Swal.fire({
+      title: 'Esta seguro de aumentar la cantidad del producto?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#178CA4',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Confirmar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        console.log(item);
+        this.productoService
+          .aumentar(item)
+          .subscribe(
+            response => {
+              Swal.fire(
+                'Cantidad Aumentada!'
+              )
+              window.location.reload();
+            }
+          );
+
+
+      }
+    })
+  }
+  disminuirInventario(item:any){
+    Swal.fire({
+      title: 'Esta seguro de disminuir la cantidad del producto?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#178CA4',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Confirmar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        console.log(item);
+        this.productoService
+          .disminuir(item)
+          .subscribe(
+            response => {
+              Swal.fire(
+                'Cantidad Disminuida!'
+              )
+              window.location.reload();
+            },
+            error => {
+              console.log(error);
+            }
+          );
+
+
+      }
+    })
+  }
   eliminar(id) {
     Swal.fire({
       title: 'Esta seguro de eliminar el producto?',
@@ -65,7 +122,7 @@ export class StockComponent implements OnInit {
               window.location.reload();
             },
             error => {
-
+              console.log(error);
             }
           );
 
@@ -107,4 +164,28 @@ export class StockComponent implements OnInit {
       );
     })
   }
+
+  /* Declara el evento scroll del HostListener */
+  @HostListener('window:scroll', ['$event'])
+
+  onWindowScroll() {
+    /* NavBar */
+    let element1 = document.querySelector('nav');
+    /* Filtro */
+    let element2 = document.getElementById('filtro');
+    /* Dropdown  */
+    let element3 = document.getElementById('dropdown');
+
+    /* Condiciones para el cambio de color segun la altura del scroll */
+    if (window.pageYOffset > 1) {
+      element1.classList.add('bg-primary-g');
+      element2.classList.add('dropdown-btn-g');
+      element3.classList.add('dropdown-content-g-a');
+    } else {
+      element1.classList.remove('bg-primary-g');
+      element2.classList.remove('dropdown-btn-g');
+      element3.classList.remove('dropdown-content-g-a');
+    }
+  }
+
 }

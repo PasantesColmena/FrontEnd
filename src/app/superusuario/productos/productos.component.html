@@ -69,7 +69,10 @@
           <!--Editar-->
           <form action="" class="form-edit d-none">
             <h2>Editar</h2>
-            <input type="image" id="img" alt="none">
+            <div class="button-wrap">
+              <label class="button-file" for="upload">Upload File</label>
+              <input id="upload" type="file">
+            </div>
             <input type="text" id="nom">
             <input type="text" id="desc">
             <input type="num" id="pre_uni">
@@ -80,7 +83,10 @@
           <!--Agregar-->
           <form action="" class="form-add d-none">
             <h2>Agregar</h2>
-            <input type="image" id="img" alt="none" placeholder="Imagen">
+            <div class="button-wrap">
+              <label class="button-file" for="upload">Upload File</label>
+              <input id="upload" type="file">
+            </div>
             <input type="text" id="nom" placeholder="Nombre">
             <input type="text" id="desc" placeholder="Descripción">
             <input type="num" id="pre_uni" placeholder="Precio Unidad">

@@ -42,6 +42,18 @@ export class ProductoService {
       catchError(this.errorHandler)
     )
   }
+  aumentar(producto:Producto): Observable<Producto> {
+    return this.httpClient.post<Producto>(this.apiURL +'aumentar', JSON.stringify(producto), this.httpOptions)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
+  disminuir(producto: Producto): Observable<Producto> {
+    return this.httpClient.post<Producto>(this.apiURL +'disminuir', this.httpOptions)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
 
   delete(id): Observable<Producto>{
     return this.httpClient.delete<Producto>(this.apiURL +'delete/'+id, this.httpOptions)

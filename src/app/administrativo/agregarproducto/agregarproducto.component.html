@@ -1,20 +1,18 @@
 <nav class="navbar fixed-top" (scroll)="onWindowScroll()">
   <div class="nav-item">
+    <div class="stock-tienda" style="margin-left: auto" >
+      <p routerLink="/admin/stock">Stock</p>
+    </div>
+  </div>
+  <!-- Filtro Termina -->
+  <div class="nav-item">
+    <div class="agregar-prod">
+      <p routerLink="/admin/stock/agregar">Nuevo Producto</p>
+    </div>
+  </div>
+  <div class="nav-item">
     <div class="stock-tienda">
-      <p routerLink="/admin/stock"> Stock de la tienda </p>
-    </div>
-  </div>
-  <div class="nav-item">
-
-  </div>
-  <div class="nav-item">
-    <div class="agregar-prod">
-      <p routerLink="/admin/stock/agregar"> Nuevo Producto </p>
-    </div>
-  </div>
-  <div class="nav-item">
-    <div class="agregar-prod">
-      <p routerLink="/paginaprincipal/login"> LogOut </p>
+      <p routerLink="/paginaprincipal/login">LogOut</p>
     </div>
   </div>
 </nav>

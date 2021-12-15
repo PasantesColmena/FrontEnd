@@ -10,8 +10,8 @@
   width: 100%;
   margin: 0;
   display: flex;
-  padding: 20px;
-  max-width: 400px;
+  padding: 40px;
+  max-width: 500px;
   margin: auto;
 }
 
@@ -20,6 +20,7 @@
   padding: 80px 80px;
   background: white;
   border-radius: 20px;
+  height: 440px;
 }
 
 .form-content form h2{
@@ -59,41 +60,133 @@
 
 /*End Login*/
 
+/*Atr*/
+
+.text-container {
+  width: 100%;
+}
+
+.title-container {
+  display: flex;
+  width: 100%;
+  text-align: center;
+  align-content: space-around;
+  color: #072A40;
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.title-stock {
+  width: 50%;
+}
+
+.title-sales {
+  width: 50%;
+}
+
+.atr-container {
+  display: flex;
+}
+
+.atr-stock-container {
+  display: flex;
+  width: 50%;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.atr-sales-container {
+  display: flex;
+  width: 50%;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.atr-1 {
+  width: 33%;
+  text-align: center;
+}
+
+.atr-2 {
+  width: 33%;
+  text-align: center;
+}
+
+.atr-3 {
+  width: 33%;
+  text-align: center;
+}
+
+
+
+/*End Atr*/
+
 
 /*Data Tienda*/
 
 .data-container {
   display: flex;
+  padding: 20px;
 }
 
+/*Item Stock Producto*/
 
 .data-stock-container {
   width: 50%;
-  height: 400px;
-  overflow: hidden;
-  background-color: white;
+  height: 250px;
   overflow-x: hidden;
   overflow-y: auto;
   text-align: center;
+  padding-right: 20px;
 }
-
-/*Item Producto*/
 
 .stock-item {
   display: flex;
   width: 100%;
   text-align: center;
-  align-content: space-between;
+  align-content: space-around;
+  margin: 10px;
+  background-color: white;
+  color: grey;
+  border-radius: 4px;
+  font-size: 20px;
 }
 
-.item-name {
-  color: black;
-}
-
+/*Item Sales*/
 
 .data-sales-container {
   width: 50%;
-  height: 300px;
-  overflow: hidden;
-  background-color: blue;
+  height: 250px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+  padding-right: 20px;
 }
+
+.sales-item {
+  display: flex;
+  width: 100%;
+  text-align: center;
+  align-content: space-around;
+  margin: 10px;
+  background-color: white;
+  color: grey;
+  border-radius: 4px;
+  font-size: 20px;
+}
+
+.item-1 {
+  width: 33%;
+}
+
+.item-2 {
+  width: 33%;
+
+}
+.item-3 {
+  width: 33%;
+}
+
