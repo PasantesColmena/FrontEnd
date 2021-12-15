@@ -6,4 +6,5 @@ export interface Usuario {
   num: string;
   dir: string;
   password: string;
+  category: string
 }

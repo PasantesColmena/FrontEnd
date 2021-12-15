@@ -20,13 +20,13 @@ export class RegisterComponent implements OnInit {
   desg: Desglose[] = [];
   items = this.cartService.getItems();
   form: FormGroup;
+  err = null;
 
 
   constructor(
     public usuarioService: UsuarioService,
     private router: Router,
-    private cartService: CartService,
-    private facturaService: FacturasService
+    private cartService: CartService
   ) { }
 
   ngOnInit(): void {
@@ -45,32 +45,16 @@ export class RegisterComponent implements OnInit {
   }
   submit() {
     console.log(this.form.value);
-    this.usuarioService.createUsuario(this.form.value).subscribe(res => {
+    this.usuarioService.createUsuario(this.form.value).subscribe(res =>
+      {
       console.log('Usuario creado correctamente!');
       this.router.navigate(['paginaprincipal/login']);
-    })
-    // this.fact['usuario_id'] = 0;
-    // this.fact['tot'] = this.cartService.getTotalPrecio();
-    // this.fact.toString();
-    // console.log(Object.assign({}, this.fact));
-    // this.facturaService.createFactura(Object.assign({}, this.fact)).subscribe(res => {
-    //   Swal.fire("Su compra esta siendo procesada...", "", "info");
-    //   for (let item = 0; item < this.items.length; item++) {
-    //     const element = this.items[item];
-    //     this.desg['facturas_id'] = 0;
-    //     this.desg['producto_id'] = element.id;
-    //     this.desg['cantidad'] = element.cantlleva;
-    //     this.desg['pre_tot'] = (element.pre_uni * element.cantlleva);
-    //     this.facturaService.createDesglose(Object.assign({}, this.desg)).subscribe(res => {
-    //       console.log('Desglose creado correctamente!');
-    //       if (item===this.items.length-1){
-    //         Swal.fire("Su compra ha sido realizada", "", "success");
-    //         this.cartService.clearCart();
-    //         this.router.navigate(['producto/pdf']);
-    //       }
-    //     })
-    //   }
-    //   console.log('Factura creada correctamente!');
-    // })
+    },
+    error => {
+      console.log(error);
+      this.err = error.error;
+    }
+    )
+
   }
 }

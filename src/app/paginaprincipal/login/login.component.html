@@ -1,4 +1,5 @@
 <div class="main-login">
+  <!-- Login -->
   <div class="container">
     <div class="form-content">
       <form [formGroup]="form">
@@ -22,5 +23,27 @@
       <br />
       <a [routerLink]="['/paginaprincipal/register']">Sing Up</a>
     </div>
+  </div>
+
+  <!-- Datos Tienda -->
+  <div class="data-container">
+    <div class="data-stock-container">
+      <!-- Item -->
+      <div *ngFor="let producto of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]">
+        <div class="stock-item">
+          <p class="item-name"> Oswald </p>
+          <p class="item-price"> 4.44 </p>
+          <p class="item-cant"> 32 </p>
+        </div>
+      </div>
+    </div>
+    <div class="data-sales-container">
+
+    </div>
+  </div>
+
+  <!-- Información -->
+  <div class="end-container">
+
   </div>
 </div>

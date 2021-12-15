@@ -1,5 +1,32 @@
 <div class="fact-container">
 
+
+    <nav class="navbar fixed-top" (scroll)="onWindowScroll()">
+      <div class="nav-item">
+        <p class="nav-shop">
+          <a routerLink="/producto/lista">
+            Inicio
+          </a>
+        </p>
+      </div>
+      <div class="nav-item">
+        <a routerLink="/producto/checkout">
+          <div class="nav-checkout">
+            <div class="icon-container">
+              <em class=" icon material-icons" id="icon">shopping_cart</em>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="nav-item">
+        <p class="nav-shop">
+          <a routerLink="/paginaprincipal/login">
+            LogOut
+          </a>
+        </p>
+      </div>
+    </nav>
+
     <div class="title-container">
         Factura
     </div>

@@ -43,8 +43,8 @@ export class ProductoService {
     )
   }
 
-  delete(ced){
-    return this.httpClient.delete<Producto>(this.apiURL + ced, this.httpOptions)
+  delete(id): Observable<Producto>{
+    return this.httpClient.delete<Producto>(this.apiURL +'delete/'+id, this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )

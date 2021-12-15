@@ -24,6 +24,11 @@ export class UsuariosComponent implements OnInit {
     })
   }
 
+  eliminarUsuario(userID) {
+
+
+  }
+
   mostrarFormEditar(userID) {
 
     let formAdd = document.querySelector(".form-add");
@@ -34,7 +39,7 @@ export class UsuariosComponent implements OnInit {
     );
 
 
-    (<HTMLInputElement>document.getElementById('ide')).value = this.item.id.toString();
+    // (<HTMLInputElement>document.getElementById('ide')).value = this.item.id.toString();
     (<HTMLInputElement>document.getElementById('nom')).value = this.item.nom.toString();
     // (<HTMLInputElement>document.getElementById('email')).value = this.item.email;
     (<HTMLInputElement>document.getElementById('ced')).value = this.item.ced.toString();

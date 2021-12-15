@@ -44,8 +44,8 @@ export class UsuarioService {
     )
   }
 
-  delete(ced){
-    return this.httpClient.delete<Usuario>(this.apiURL + ced, this.httpOptions)
+  delete(id){
+    return this.httpClient.delete<Usuario>(this.apiURL + id, this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )

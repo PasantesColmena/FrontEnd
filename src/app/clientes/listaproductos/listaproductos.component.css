@@ -14,22 +14,21 @@
 
 
 .nav-item {
-  width: 33%;
+  width: 20%;
   line-height: 90px;
   height: 90px;
   text-align: center;
+  font-size: 30px;
 }
 
 .nav-title {
   font-family: Anton;
-  font-size: 40px;
   color: white;
 }
 
 
 .nav-shop {
   font-family: Anton;
-  font-size: 35px;
   color: white;
 }
 

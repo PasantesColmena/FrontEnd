@@ -3,14 +3,17 @@
     <div class="item-container">
       <div class="item"><a [routerLink]="['/superusuario/usuarios']">Usuarios</a></div>
     </div>
-    <div class="item-container">
-      <div class="item"><a [routerLink]="['/superusuario/clientes']">Clientes</a></div>
-    </div>
+
     <div class="item-container">
       <div class="item"><a [routerLink]="['/superusuario/facturas']">Facturas</a></div>
     </div>
     <div class="item-container">
       <div class="item"><a [routerLink]="['/superusuario/productos']">Productos</a></div>
+    </div>
+    <div class="item-container">
+      <div class="item">
+        <a [routerLink]="['/paginaprincipal/login']">LogOut</a>
+      </div>
     </div>
   </nav>
 
@@ -49,9 +52,7 @@
             </button>
           </div>
           <div class="item-btn-delete">
-            <button class="btn-delete">
-              Eliminar
-            </button>
+            <button type="button" (click)="eliminar(producto.id)" class="btn-delete">Eliminar</button>
           </div>
         </div>
       </div>
@@ -69,7 +70,6 @@
           <form action="" class="form-edit d-none">
             <h2>Editar</h2>
             <input type="image" id="img" alt="none">
-            <input type="num" id="id">
             <input type="text" id="nom">
             <input type="text" id="desc">
             <input type="num" id="pre_uni">
@@ -81,7 +81,6 @@
           <form action="" class="form-add d-none">
             <h2>Agregar</h2>
             <input type="image" id="img" alt="none" placeholder="Imagen">
-            <input type="num" id="id" placeholder="ID">
             <input type="text" id="nom" placeholder="Nombre">
             <input type="text" id="desc" placeholder="Descripción">
             <input type="num" id="pre_uni" placeholder="Precio Unidad">

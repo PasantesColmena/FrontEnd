@@ -6,14 +6,17 @@
     <div class="item-container">
       <div class="item"><a [routerLink]="['/superusuario/usuarios']">Usuarios</a></div>
     </div>
-    <div class="item-container">
-      <div class="item"><a [routerLink]="['/superusuario/clientes']">Clientes</a></div>
-    </div>
+
     <div class="item-container">
       <div class="item"><a [routerLink]="['/superusuario/facturas']">Facturas</a></div>
     </div>
     <div class="item-container">
       <div class="item"><a [routerLink]="['/superusuario/productos']">Productos</a></div>
+    </div>
+    <div class="item-container">
+      <div class="item">
+        <a [routerLink]="['/paginaprincipal/login']">LogOut</a>
+      </div>
     </div>
   </nav>
 
@@ -52,7 +55,10 @@
             </button>
           </div>
           <div class="item-btn-delete">
-            <button class="btn-delete">
+            <button
+              class="btn-delete"
+              (click)="eliminarUsuario(user.id)"
+              >
               Eliminar
             </button>
           </div>
@@ -71,7 +77,6 @@
           <!--Editar-->
           <form action="" class="form-edit d-none">
             <h2>Editar</h2>
-            <input type="num" id="ide">
             <input type="text" id="nom">
             <input type="text" id="email">
             <input type="text" id="ced">
@@ -89,14 +94,13 @@
           <!--Agregar-->
           <form action="" class="form-add d-none">
             <h2>Agregar</h2>
-            <input type="num" placeholder="1">
             <input type="text" placeholder="Oswald">
             <input type="text" placeholder="osw2156@gmail.com">
             <input type="text" placeholder="305420955">
             <input type="num" placeholder="83701101">
             <input type="text" placeholder="San Jose">
             <input type="password" placeholder="Contraseña">
-            <input type="text" list="permisos" placeholder="Admin">
+            <input type="text" list="permisos" placeholder="Cliente">
             <datalist id="permisos">
               <option value="Administrativo">
               <option value="SuperUsuario">

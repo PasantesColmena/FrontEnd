@@ -7,17 +7,17 @@
     </div>
     <div class="item-container">
       <div class="item">
-        <a [routerLink]="['/superusuario/clientes']">Clientes</a>
-      </div>
-    </div>
-    <div class="item-container">
-      <div class="item">
         <a [routerLink]="['/superusuario/facturas']">Facturas</a>
       </div>
     </div>
     <div class="item-container">
       <div class="item">
         <a [routerLink]="['/superusuario/productos']">Productos</a>
+      </div>
+    </div>
+    <div class="item-container">
+      <div class="item">
+        <a [routerLink]="['/paginaprincipal/login']">LogOut</a>
       </div>
     </div>
   </nav>
@@ -29,58 +29,33 @@
     <div class="content-half-items">
       <!-- Atributos -->
       <div class="atr-content">
-        <div>ID</div>
+        <div>ID Facturas</div>
         <div>Nombre</div>
+        <div>Total</div>
       </div>
       <!-- Item -->
       <div *ngFor="let fact of facturas">
         <div class="item-content">
           <div class="item-data">
             <div class="data-1">
-              {{ fact.usuario_id }}
+              {{fact.usuario_id}}
             </div>
             <div class="data-2">
+              {{fact.usuario.nom}}
+            </div>
+            <div class="data-3">
               {{ fact.tot }}
             </div>
-          </div>
-          <div class="item-btn-edit">
-            <button
-              class="btn-edit"
-              type="button"
-              (click)="mostrarFormEditar()"
-            >
-              Editar
-            </button>
           </div>
           <div class="item-btn-delete">
             <button class="btn-delete">Eliminar</button>
           </div>
         </div>
       </div>
-    </div>
-    <!-- Form Container -->
-    <div class="content-half-window">
       <!-- Btn Agregar -->
       <div class="btn-content">
-        <button class="btn-agregar" (click)="mostrarFormAdd()">Agregar</button>
-      </div>
-      <div class="window-container">
-        <div class="form-container">
-          <!--Editar-->
-          <form action="" class="form-edit d-none">
-            <h2>Editar</h2>
-            <input type="id" id="img" alt="none" />
-            <input type="num" id="id" />
-            <input type="text" id="nom" />
-            <input type="text" id="desc" />
-            <input type="num" id="pre_uni" />
-            <input type="num" id="cant" />
-
-            <button>Editar</button>
-          </form>
-        </div>
+        <button class="btn-agregar"  [routerLink]="['/']" >Agregar</button>
       </div>
     </div>
   </div>
-
 </div>

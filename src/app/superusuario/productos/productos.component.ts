@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto } from '../../service/productos/productos';
 import { ProductoService } from '../../service/productos/productos.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -18,6 +19,34 @@ export class ProductosComponent implements OnInit {
     public productoService: ProductoService,
 
   ) { }
+
+  eliminar(id) {
+    Swal.fire({
+      title: 'Esta seguro de eliminar el producto?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#178CA4',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Confirmar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+        this.productoService
+          .delete(id)
+          .subscribe(
+            response => {
+              Swal.fire(
+                'Producto Eliminado!'
+              )
+              window.location.reload();
+            },
+            error => {
+            }
+          );
+      }
+    })
+  }
 
   ngOnInit(): void {
 
@@ -39,7 +68,7 @@ export class ProductosComponent implements OnInit {
     );
 
 
-    (<HTMLInputElement>document.getElementById('id')).value = this.item.id.toString();
+    // (<HTMLInputElement>document.getElementById('id')).value = this.item.id.toString();
     (<HTMLInputElement>document.getElementById('nom')).value = this.item.nom.toString();
     (<HTMLInputElement>document.getElementById('desc')).value = this.item.desc.toString();
     (<HTMLInputElement>document.getElementById('pre_uni')).value = this.item.pre_uni.toString();

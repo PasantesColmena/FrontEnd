@@ -1,3 +1,5 @@
+/* Login */
+
 .main-login {
   width: 100%;
   padding: 20px;
@@ -53,4 +55,45 @@
 .form-content a {
   text-decoration: none;
   color: #072A40;
+}
+
+/*End Login*/
+
+
+/*Data Tienda*/
+
+.data-container {
+  display: flex;
+}
+
+
+.data-stock-container {
+  width: 50%;
+  height: 400px;
+  overflow: hidden;
+  background-color: white;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+}
+
+/*Item Producto*/
+
+.stock-item {
+  display: flex;
+  width: 100%;
+  text-align: center;
+  align-content: space-between;
+}
+
+.item-name {
+  color: black;
+}
+
+
+.data-sales-container {
+  width: 50%;
+  height: 300px;
+  overflow: hidden;
+  background-color: blue;
 }

@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
 
   err = null;
   form: FormGroup;
+  isLoggedin: boolean;
 
 
   constructor(
@@ -28,30 +29,36 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authenticationStateService.userAuthState.subscribe(res => {
+      this.isLoggedin = res;
+    });
+    if (this.isLoggedin===true){
+      this.authenticationStateService.setAuthState(false);
+      this.tokenAuthService.destroyToken();
+    }
     this.form = new FormGroup({
       email: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
     })
-   }
-
-  submit() {
-      this.jwtService.logIn(this.form.value).subscribe(
-        res => {
-          console.log(res);
-          this.tokenStorage(res);
-        },
-        error => {
-          console.log(error);
-          this.err = error.error;
-        },() => {
-          this.authenticationStateService.setAuthState(true);
-          this.form.reset()
-          this.router.navigate(['']);
-        }
-      );
   }
 
-  tokenStorage(jwt){
+  submit() {
+    this.jwtService.logIn(this.form.value).subscribe(
+      res => {
+        this.tokenStorage(res);
+      },
+      error => {
+        console.log(error);
+        this.err = error.error;
+      }, () => {
+        this.authenticationStateService.setAuthState(true);
+        this.form.reset()
+        this.router.navigate(['']);
+      }
+    );
+  }
+
+  tokenStorage(jwt) {
     this.tokenAuthService.setTokenStorage(jwt.access_token);
   }
 
