@@ -5,6 +5,6 @@ export interface Producto {
   pre_uni: number;
   cantlleva: number;
   cant: number;
-
+  cat: string;
 }
 

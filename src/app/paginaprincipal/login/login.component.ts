@@ -11,6 +11,7 @@ import { FacturasService } from '../../service/facturas/facturas.service';
 
 import { Producto } from '../../service/productos/productos';
 import { ProductoService } from '../../service/productos/productos.service';
+import { UsuarioService } from 'src/app/service/usuarios/usuario.service';
 
 
 @Component({
@@ -31,6 +32,8 @@ export class LoginComponent implements OnInit {
   productos: Producto[] = [];
   item: Producto | undefined;
 
+  user: any;
+
 
   constructor(
     public router: Router,
@@ -39,6 +42,7 @@ export class LoginComponent implements OnInit {
     private authenticationStateService: AuthenticationStateService,
     public facturasService: FacturasService,
     public productoService: ProductoService,
+    private usuarioService: UsuarioService
 
   ) {
 
@@ -52,7 +56,7 @@ export class LoginComponent implements OnInit {
     this.authenticationStateService.userAuthState.subscribe(res => {
       this.isLoggedin = res;
     });
-    if (this.isLoggedin===true){
+    if (this.isLoggedin === true) {
       this.authenticationStateService.setAuthState(false);
       this.tokenAuthService.destroyToken();
     }
@@ -78,8 +82,27 @@ export class LoginComponent implements OnInit {
         this.err = error.error;
       }, () => {
         this.authenticationStateService.setAuthState(true);
-        this.form.reset()
-        this.router.navigate(['']);
+        this.form.reset();
+        /* Permisos */
+        this.jwtService.profile().subscribe((res: any) => {
+          this.user = res;
+          this.usuarioService.getPermiso(this.user.id).subscribe((
+            datac: any) => {
+            if (datac == "SuperUsuario") {
+              this.router.navigate(['superusuario/usuarios']);
+            }
+            if (datac == "Administrativo") {
+              this.router.navigate(['admin/stock']);
+            }
+            if (datac == "Cliente") {
+              this.router.navigate(['producto/lista']);
+            }
+          })
+        },
+          error => {
+            this.router.navigate(['paginaprincipal/login']);
+          })
+        /* Fin Permisos */
       }
     );
   }

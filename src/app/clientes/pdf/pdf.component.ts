@@ -2,6 +2,9 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { Usuario } from 'src/app/service/usuarios/usuario';
 import { FacturasService } from '../../service/facturas/facturas.service';
 import { JwtService } from 'src/app/service/shared/jwt.service';
+import { UsuarioService } from 'src/app/service/usuarios/usuario.service';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -27,14 +30,46 @@ export class PdfComponent implements OnInit {
 
   constructor(
     private facturasService: FacturasService,
-    public jwtService: JwtService
+    public jwtService: JwtService,
+    private usuarioService: UsuarioService,
+    private router: Router
   ) {
 
   }
-
-
-
   ngOnInit(): void {
+    /* Permisos */
+    this.jwtService.profile().subscribe((res: any) => {
+      this.user = res;
+      this.usuarioService.getPermiso(this.user.id).subscribe((
+        datac: any) => {
+        if (datac != "Cliente") {
+          Swal.fire({
+            title: 'No esta autorizado para entrar a esta pagina',
+            icon: 'info',
+            allowOutsideClick: false
+          })
+          if (datac == "SuperUsuario") {
+            this.router.navigate(['superusuario/usuarios']);
+          }
+          if (datac == "Administrativo") {
+            this.router.navigate(['admin/stock']);
+          }
+          if (datac == "Cliente") {
+            this.router.navigate(['producto/lista']);
+          }
+
+        }
+      })
+    },
+      error => {
+        Swal.fire({
+          title: 'Para acceder a la pagina debe iniciar sesion',
+          icon: 'info',
+          allowOutsideClick: false
+        })
+        this.router.navigate(['paginaprincipal/login']);
+      })
+    /* Fin Permisos */
     this.jwtService.profile().subscribe((res: any) => {
       this.user = res;
       console.log(this.user);

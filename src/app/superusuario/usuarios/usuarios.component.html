@@ -49,11 +49,7 @@
             <div class="data-type">{{ user.category }}</div>
           </div>
           <div class="item-btn-edit">
-            <button
-              class="btn-edit"
-              type="button"
-              (click)="mostrarFormEditar(user.id)"
-            >
+            <button class="btn-edit" type="button" (click)="mostrarFormEditar(user.id)">
               Editar
             </button>
           </div>
@@ -74,68 +70,32 @@
       <div class="window-container">
         <div class="form-container">
           <!--Editar-->
-          <form action="" class="form-edit d-none">
+          <form action="" [formGroup]="form" class="form-edit d-none" (ngSubmit)="editar()">
             <h2>Editar</h2>
-            <input type="text" id="nom_1" />
-            <input type="email" id="email_1" />
-            <input type="text" id="ced_1" />
-            <input type="num" id="num_1" />
-            <input type="text" id="dir_1" />
-            <input type="password" id="pass_1" />
-            <input type="text" list="permisos" id="category_1" />
-            <datalist id="permisos_1">
+            <input formControlName="nom" id="nom" type="text" placeholder="Juan Perez" />
+            <input formControlName="email" id="email" type="email" placeholder="example@gmail.com" />
+            <input formControlName="ced" id="ced" type="text" placeholder="000000000" />
+            <input formControlName="num" id="num" type="text" placeholder="00000000" />
+            <input formControlName="dir" id="dir" type="text" placeholder="Provincia, Canton, etc" />
+            <input formControlName="password" id="password" type="password" placeholder="********" />
+            <input list="permisos" id="category" type="text" formControlName="category" />
+            <datalist id="permisos">
               <option value="Administrativo"></option>
               <option value="SuperUsuario"></option>
               <option value="Cliente"></option>
             </datalist>
-
             <button>Editar</button>
           </form>
           <!--Agregar-->
           <form action="" [formGroup]="form" class="form-add d-none" (ngSubmit)="submit()">
             <h2>Agregar</h2>
-            <input
-              type="text"
-              formControlName="nom"
-              id="nom"
-              placeholder="Juan Perez"
-            />
-            <input
-              formControlName="email"
-              id="email"
-              type="email"
-              placeholder="example@gmail.com"
-            />
-            <input
-              formControlName="ced"
-              id="ced"
-              type="text"
-              placeholder="000000000"
-            />
-            <input
-              formControlName="num"
-              id="num"
-              type="text"
-              placeholder="00000000"
-            />
-            <input
-              formControlName="dir"
-              id="dir"
-              type="text"
-              placeholder="Provincia, Canton, etc"
-            />
-            <input
-              formControlName="password"
-              id="password"
-              type="password"
-              placeholder="********"
-            />
-            <input
-              type="text"
-              list="permisos"
-              id="category"
-              formControlName="category"
-            />
+            <input formControlName="nom" id="nom" type="text" placeholder="Juan Perez" />
+            <input formControlName="email" id="email" type="email" placeholder="example@gmail.com" />
+            <input formControlName="ced" id="ced" type="text" placeholder="000000000" />
+            <input formControlName="num" id="num" type="text" placeholder="00000000" />
+            <input formControlName="dir" id="dir" type="text" placeholder="Provincia, Canton, etc" />
+            <input formControlName="password" id="password" type="password" placeholder="********" />
+            <input list="permisos" id="category" type="text" formControlName="category" />
             <datalist id="permisos">
               <option value="Administrativo"></option>
               <option value="SuperUsuario"></option>

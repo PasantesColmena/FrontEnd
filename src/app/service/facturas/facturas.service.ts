@@ -22,14 +22,6 @@ export class FacturasService {
 
   constructor(private httpClient: HttpClient) { }
 
-  // delete(id){
-  //   return this.httpClient.delete<Usuario>(this.apiURL + id, this.httpOptions)
-  //   .pipe(
-  //     catchError(this.errorHandler)
-  //   )
-  // }
-
-
   getAll(): Observable<any[]> {
     return this.httpClient.get<any[]>(this.apiURL+'getAll')
     .pipe(
@@ -43,8 +35,8 @@ export class FacturasService {
       catchError(this.errorHandler)
     )
   }
-  delete(id){
-    return this.httpClient.delete<Facturas>(this.apiURL +'delete/'+id, this.httpOptions)
+  descargaPDF(): Observable<any[]> {
+    return this.httpClient.get<any[]>(this.apiURL+'pdf')
     .pipe(
       catchError(this.errorHandler)
     )
@@ -61,12 +53,14 @@ export class FacturasService {
         catchError(this.errorHandler)
       )
   }
-  descargaPDF(): Observable<any[]> {
-    return this.httpClient.get<any[]>(this.apiURL+'pdf')
+  delete(id){
+    return this.httpClient.delete<Facturas>(this.apiURL +'delete/'+id, this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
   }
+
+
   errorHandler(error) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {

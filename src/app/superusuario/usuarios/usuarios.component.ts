@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/service/usuarios/usuario.service';
 import { Usuario } from 'src/app/service/usuarios/usuario';
 import Swal from 'sweetalert2';
+import { JwtService } from 'src/app/service/shared/jwt.service';
 
 @Component({
   selector: 'app-usuarios',
@@ -13,24 +14,69 @@ import Swal from 'sweetalert2';
 export class UsuariosComponent implements OnInit {
 
   users: Usuario[] = [];
-  item: Usuario | undefined;
+  item: any | undefined;
   form: FormGroup;
+  id: any | undefined;
+  nom: any | undefined;
+  email: any | undefined;
+  ced: any | undefined;
+  num: any | undefined;
+  dir: any | undefined;
+  password: any | undefined;
+  category: any | undefined;
   err = null;
+  user: any;
+
 
 
   constructor(
     public usuarioService: UsuarioService,
     private router: Router,
+    private jwtService: JwtService,
+
   ) { }
 
 
   ngOnInit(): void {
 
+    /* Permisos */
+    this.jwtService.profile().subscribe((res: any) => {
+      this.user = res;
+      this.usuarioService.getPermiso(this.user.id).subscribe((
+        datac: any) => {
+        if (datac != "SuperUsuario") {
+          Swal.fire({
+            title: 'No esta autorizado para entrar a esta pagina',
+            icon: 'info',
+            allowOutsideClick: false
+          })
+          if (datac == "SuperUsuario") {
+            this.router.navigate(['superusuario/usuarios']);
+          }
+          if (datac == "Administrativo") {
+            this.router.navigate(['admin/stock']);
+          }
+          if (datac == "Cliente") {
+            this.router.navigate(['producto/lista']);
+          }
+
+        }
+      })
+    },
+      error => {
+        Swal.fire({
+          title: 'Para acceder a la pagina debe iniciar sesion',
+          icon: 'info',
+          allowOutsideClick: false
+        })
+        this.router.navigate(['paginaprincipal/login']);
+      })
+    /* Fin Permisos */
+
     this.usuarioService.getAll().subscribe((datau: Usuario[]) => {
       this.users = datau;
       for (let index = 0; index < this.users.length; index++) {
         this.usuarioService.getPermiso(this.users[index].id).subscribe((datac: any) => {
-          console.log(datac);
           this.users[index].category = datac;
         })
       }
@@ -50,17 +96,16 @@ export class UsuariosComponent implements OnInit {
   }
   submit() {
     console.log(this.form.value);
-    this.usuarioService.createUsuario(this.form.value).subscribe(res =>
-      {
-        Swal.fire(
-          'Usuario Creado Correctamente!'
-        )
+    this.usuarioService.createUsuario(this.form.value).subscribe(res => {
+      Swal.fire(
+        'Usuario Creado Correctamente!'
+      )
       window.location.reload();
     },
-    error => {
-      console.log(error);
-      this.err = error.error;
-    }
+      error => {
+        console.log(error);
+        this.err = error.error;
+      }
     )
 
   }
@@ -97,6 +142,41 @@ export class UsuariosComponent implements OnInit {
 
 
   }
+  editar() {
+    this.form.value['id'] = this.id;
+    if (this.form.value['nom'] == "") {
+      this.form.value['nom'] = this.nom;
+    }
+    if (this.form.value['email'] == "") {
+      this.form.value['email'] = this.email;
+    }
+    if (this.form.value['ced'] == "") {
+      this.form.value['ced'] = this.ced;
+    }
+    if (this.form.value['num'] == "") {
+      this.form.value['num'] = this.num;
+    }
+    if (this.form.value['dir'] == "") {
+      this.form.value['dir'] = this.dir;
+    }
+    if (this.form.value['password'] == "") {
+      this.form.value['password'] = this.password;
+    }
+
+    console.log(this.form.value);
+    this.usuarioService.edit(this.form.value).subscribe(res => {
+      Swal.fire(
+        'Producto Editado Correctamente!'
+      )
+      window.location.reload();
+    },
+      error => {
+        console.log(error);
+      }
+    )
+  }
+
+
 
   mostrarFormEditar(userID) {
 
@@ -106,16 +186,24 @@ export class UsuariosComponent implements OnInit {
     this.item = this.users.find(
       (item) => item.id === userID
     );
-
-
+    console.log(this.item);
+    this.form['id'] = this.item.id;
+    this.id = this.item.id;
+    this.nom = this.item.nom;
+    this.email = this.item.email;
+    this.ced = this.item.ced;
+    this.num = this.item.num;
+    this.dir = this.item.dir;
+    this.password = this.item.password;
+    this.category = this.item.category;
     // (<HTMLInputElement>document.getElementById('ide')).value = this.item.id.toString();
-    (<HTMLInputElement>document.getElementById('nom_1')).value = this.item.nom.toString();
-    (<HTMLInputElement>document.getElementById('email_1')).value = this.item.email;
-    (<HTMLInputElement>document.getElementById('ced_1')).value = this.item.ced.toString();
-    (<HTMLInputElement>document.getElementById('num_1')).value = this.item.num;
-    (<HTMLInputElement>document.getElementById('dir_1')).value = this.item.dir.toString();
-    (<HTMLInputElement>document.getElementById('pass_1')).value = this.item.password;
-    (<HTMLInputElement>document.getElementById('category_1')).value = this.item.category;
+    (<HTMLInputElement>document.getElementById('nom')).value = this.item.nom.toString();
+    (<HTMLInputElement>document.getElementById('email')).value = this.item.email;
+    (<HTMLInputElement>document.getElementById('ced')).value = this.item.ced.toString();
+    (<HTMLInputElement>document.getElementById('num')).value = this.item.num;
+    (<HTMLInputElement>document.getElementById('dir')).value = this.item.dir.toString();
+    (<HTMLInputElement>document.getElementById('password')).value = this.item.password;
+    (<HTMLInputElement>document.getElementById('category')).value = this.item.category;
 
 
 

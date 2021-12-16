@@ -6,6 +6,7 @@ import { FacturasService } from 'src/app/service/facturas/facturas.service';
 import { Usuario } from 'src/app/service/usuarios/usuario';
 import { JwtService } from 'src/app/service/shared/jwt.service';
 import Swal from 'sweetalert2'
+import { UsuarioService } from 'src/app/service/usuarios/usuario.service';
 
 @Component({
   selector: 'app-checkout',
@@ -18,20 +19,53 @@ export class CheckoutComponent {
   item = this.items[1];
   fact: Facturas[] = [];
   desg: Desglose[] = [];
-  user: Usuario;
+  user: any;
+  lvl:any;
 
   constructor(
     private cartService: CartService,
     private router: Router,
     private facturaService: FacturasService,
-    public jwtService: JwtService
+    public jwtService: JwtService,
+    private usuarioService: UsuarioService
   ) {
+  }
+  ngOnInit(): void {
+    /* Permisos */
     this.jwtService.profile().subscribe((res: any) => {
       this.user = res;
-      console.log(this.user)
-    })
-   }
+      this.usuarioService.getPermiso(this.user.id).subscribe((
+        datac: any) => {
+          this.lvl=datac;
+        if (datac == "Administrativo") {
+          Swal.fire({
+            title: 'No esta autorizado para entrar a esta pagina',
+            icon: 'info',
+            allowOutsideClick: false
+          })
+          if (datac == "SuperUsuario") {
+            this.router.navigate(['superusuario/usuarios']);
+          }
+          if (datac == "Administrativo") {
+            this.router.navigate(['admin/stock']);
+          }
+          if (datac == "Cliente") {
+            this.router.navigate(['producto/lista']);
+          }
 
+        }
+      })
+    },
+      error => {
+        Swal.fire({
+          title: 'Para acceder a la pagina debe iniciar sesion',
+          icon: 'info',
+          allowOutsideClick: false
+        })
+        this.router.navigate(['paginaprincipal/login']);
+      })
+    /* Fin Permisos */
+  }
   deleteFromCart(item) { //Elimina el item dentro del cart
     this.cartService.deleteFromCart(item);
   }
@@ -53,7 +87,13 @@ export class CheckoutComponent {
           if (item === this.items.length - 1) {
             Swal.fire("Su compra ha sido realizada", "", "success");
             this.cartService.clearCart();
-            this.router.navigate(['producto/pdf']);
+            if(this.lvl=="Cliente"){
+              this.router.navigate(['producto/pdf']);
+            }
+            else{
+              this.router.navigate(['superusuario/facturas']);
+            }
+
           }
         })
       }

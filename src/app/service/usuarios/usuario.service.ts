@@ -12,12 +12,13 @@ import { Usuario } from './usuario';
 })
 export class UsuarioService {
 
-  private apiURL = "http://localhost:8000/api/usuario/";
+  private apiURL = "http://localhost:8000/api/usuarios/";
 
   usua: Usuario
   httpOptions = {
      headers: new HttpHeaders({
        'Content-Type': 'application/json'
+
      })
   }
 
@@ -36,9 +37,23 @@ export class UsuarioService {
       catchError(this.errorHandler)
     )
   }
+  getPermiso(id) {
+    return this.httpClient.get<any>(this.apiURL+'permiso/'+id)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
+
 
   createUsuario(usuario): Observable<Usuario> {
-    return this.httpClient.post<Usuario>(this.apiURL+'create', JSON.stringify(usuario), this.httpOptions)
+    return this.httpClient.post<Usuario>(this.apiURL+'create/new', JSON.stringify(usuario), this.httpOptions)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
+
+  edit(usuario): Observable<any> {
+    return this.httpClient.put<any>(this.apiURL+'update/new', JSON.stringify(usuario), this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
@@ -61,10 +76,5 @@ export class UsuarioService {
     return throwError(errorMessage);
   }
 
-  getPermiso(id) {
-    return this.httpClient.get<any>(this.apiURL+'permiso/'+id)
-    .pipe(
-      catchError(this.errorHandler)
-    )
-  }
+
 }

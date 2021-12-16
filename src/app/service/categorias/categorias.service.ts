@@ -22,6 +22,7 @@ export class CategoriaService {
  constructor(private httpClient: HttpClient) { }
 
   private apiURL = "http://localhost:8000/api/categorias/";
+
   getCategorias(): Observable<Categorias[]> {
     return this.httpClient.get<Categorias[]>(this.apiURL)
       .pipe(

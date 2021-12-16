@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2'
 
 import { Usuario } from 'src/app/service/usuarios/usuario';
@@ -23,15 +23,72 @@ export class ListaproductosComponent implements OnInit {
   item: Producto | undefined;
   itemc: Categorias | undefined;
   user: Usuario;
+  lvl: any;
 
   constructor(
     private route: ActivatedRoute,
     private cartService: CartService,
     public productoService: ProductoService,
     public categoriaService: CategoriaService,
-    public jwtService: JwtService
+    public usuarioService: UsuarioService,
+    public jwtService: JwtService,
+    private router: Router
 
   ) { }
+
+  ngOnInit(): void {
+    /* Permisos */
+    this.jwtService.profile().subscribe((res: any) => {
+      this.user = res;
+      this.usuarioService.getPermiso(this.user.id).subscribe((
+        datac: any) => {
+        if (datac == "Administrativo") {
+          Swal.fire({
+            title: 'No esta autorizado para entrar a esta pagina',
+            icon: 'info',
+            allowOutsideClick: false
+          })
+          /* Swal No tiene los permisos para acceder a esta pagina */
+          if (datac == "SuperUsuario") {
+            this.router.navigate(['superusuario/usuarios']);
+          }
+          if (datac == "Administrativo") {
+            this.router.navigate(['admin/stock']);
+          }
+          if (datac == "Cliente") {
+            this.router.navigate(['producto/lista']);
+          }
+
+        }
+      })
+    },
+    error => {
+      Swal.fire({
+        title: 'Para acceder a la pagina debe iniciar sesion',
+        icon: 'info',
+        allowOutsideClick: false
+      })
+      this.router.navigate(['paginaprincipal/login']);
+    })
+    /* Fin Permisos */
+
+    /*Consigue el id de la ruta*/
+    const routeParams = this.route.snapshot.paramMap;
+    const productIdFromRoute = Number(routeParams.get('productoId'));
+
+    /* Categorias Lista */
+    this.categoriaService.getCategorias().subscribe((datac: Categorias[]) => {
+      this.categorias = datac;
+    })
+
+    /*Productos Lista*/
+    this.productoService.getAll().subscribe((datap: Producto[]) => {
+      this.productos = datap;
+      this.item = this.productos.find(
+        (item) => item.id === productIdFromRoute
+      );
+    })
+  }
 
   addToCart(item: Producto, productoCantlleva) {//Añade productos al cart
     if (productoCantlleva == 0) {  //Si no hay disponible o la cantidad es 0 no lo hace
@@ -84,30 +141,7 @@ export class ListaproductosComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {
 
-    this.jwtService.profile().subscribe((res: any) => {
-      this.user = res;
-      console.log(this.user)
-    })
-
-    /*Consigue el id de la ruta*/
-    const routeParams = this.route.snapshot.paramMap;
-    const productIdFromRoute = Number(routeParams.get('productoId'));
-
-    /* Categorias Lista */
-    this.categoriaService.getCategorias().subscribe((datac: Categorias[]) => {
-      this.categorias = datac;
-    })
-
-    /*Productos Lista*/
-    this.productoService.getAll().subscribe((datap: Producto[]) => {
-      this.productos = datap;
-      this.item = this.productos.find(
-        (item) => item.id === productIdFromRoute
-      );
-    })
-  }
 
   /* Declara el evento scroll del HostListener */
   @HostListener('window:scroll', ['$event'])

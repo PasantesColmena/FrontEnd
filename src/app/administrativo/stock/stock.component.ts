@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 
@@ -8,6 +8,8 @@ import { ProductoService } from '../../service/productos/productos.service';
 import { CartService } from '../../service/cart/cart.service';
 import { CategoriaService } from '../../service/categorias/categorias.service';
 import { Categorias } from '../../service/categorias/categorias';
+import { JwtService } from 'src/app/service/shared/jwt.service';
+import { UsuarioService } from 'src/app/service/usuarios/usuario.service';
 
 @Component({
   selector: 'app-stock',
@@ -19,13 +21,77 @@ export class StockComponent implements OnInit {
   categorias: Categorias[] = [];
   item: Producto | undefined;
   itemc: Categorias | undefined;
+  user: any;
 
   constructor(
     private route: ActivatedRoute,
     private cartService: CartService,
+    private router: Router,
     public productoService: ProductoService,
-    public categoriaService: CategoriaService
+    public categoriaService: CategoriaService,
+    private jwtService: JwtService,
+    private usuarioService: UsuarioService
   ) { }
+
+  ngOnInit(): void {
+
+    /* Permisos */
+    this.jwtService.profile().subscribe((res: any) => {
+      this.user = res;
+      this.usuarioService.getPermiso(this.user.id).subscribe((
+        datac: any) => {
+
+        if (datac != "Administrativo") {
+          Swal.fire({
+            title: 'No esta autorizado para entrar a esta pagina',
+            icon: 'info',
+            allowOutsideClick: false
+          })
+          if (datac == "SuperUsuario") {
+            this.router.navigate(['superusuario/usuarios']);
+          }
+          if (datac == "Administrativo") {
+            this.router.navigate(['admin/stock']);
+          }
+          if (datac == "Cliente") {
+            this.router.navigate(['producto/lista']);
+          }
+
+        }
+      })
+    },
+      error => {
+        Swal.fire({
+          title: 'No esta autorizado para entrar a esta pagina',
+          icon: 'info',
+          allowOutsideClick: false
+        })
+        Swal.fire({
+          title: 'Para acceder a la pagina debe iniciar sesion',
+          icon: 'info',
+          allowOutsideClick: false
+        })
+        this.router.navigate(['paginaprincipal/login']);
+      })
+    /* Fin Permisos */
+
+    /*Consigue el id de la ruta*/
+    const routeParams = this.route.snapshot.paramMap;
+    const productIdFromRoute = Number(routeParams.get('productoId'));
+
+    /* Categorias Lista */
+    this.categoriaService.getCategorias().subscribe((datac: Categorias[]) => {
+      this.categorias = datac;
+    })
+
+    /*Productos Lista*/
+    this.productoService.getAll().subscribe((datap: Producto[]) => {
+      this.productos = datap;
+      this.item = this.productos.find(
+        (item) => item.id === productIdFromRoute
+      );
+    })
+  }
 
   disminuir(item: any) {
     if (item.cantlleva == undefined) {
@@ -43,7 +109,7 @@ export class StockComponent implements OnInit {
 
     }
   }
-  aumentarInventario(item:any){
+  aumentarInventario(item) {
     Swal.fire({
       title: 'Esta seguro de aumentar la cantidad del producto?',
       icon: 'warning',
@@ -63,6 +129,9 @@ export class StockComponent implements OnInit {
                 'Cantidad Aumentada!'
               )
               window.location.reload();
+            },
+            error => {
+              console.log(error);
             }
           );
 
@@ -70,7 +139,7 @@ export class StockComponent implements OnInit {
       }
     })
   }
-  disminuirInventario(item:any){
+  disminuirInventario(item: any) {
     Swal.fire({
       title: 'Esta seguro de disminuir la cantidad del producto?',
       icon: 'warning',
@@ -125,12 +194,8 @@ export class StockComponent implements OnInit {
               console.log(error);
             }
           );
-
-
       }
     })
-
-
   }
 
   getAllCat(id) {
@@ -142,26 +207,6 @@ export class StockComponent implements OnInit {
   getAll() {
     this.productoService.getAll().subscribe((datap: Producto[]) => {
       this.productos = datap;
-    })
-  }
-
-  ngOnInit(): void {
-
-    /*Consigue el id de la ruta*/
-    const routeParams = this.route.snapshot.paramMap;
-    const productIdFromRoute = Number(routeParams.get('productoId'));
-
-    /* Categorias Lista */
-    this.categoriaService.getCategorias().subscribe((datac: Categorias[]) => {
-      this.categorias = datac;
-    })
-
-    /*Productos Lista*/
-    this.productoService.getAll().subscribe((datap: Producto[]) => {
-      this.productos = datap;
-      this.item = this.productos.find(
-        (item) => item.id === productIdFromRoute
-      );
     })
   }
 

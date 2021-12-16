@@ -30,26 +30,34 @@ export class ProductoService {
   }
 
   getAllCat(id): Observable<Producto[]> {
-    return this.httpClient.get<Producto[]>(this.apiURL+id)
+    return this.httpClient.get<Producto[]>(this.apiURL+'categoria/'+id)
     .pipe(
       catchError(this.errorHandler)
     )
   }
 
   create(producto): Observable<Producto> {
-    return this.httpClient.post<Producto>(this.apiURL, JSON.stringify(producto), this.httpOptions)
+    return this.httpClient.post<Producto>(this.apiURL+'create/new', JSON.stringify(producto), this.httpOptions)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
+  edit(producto): Observable<any> {
+    return this.httpClient.put<any>(this.apiURL+'update/new', JSON.stringify(producto), this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
   }
   aumentar(producto:Producto): Observable<Producto> {
-    return this.httpClient.post<Producto>(this.apiURL +'aumentar', JSON.stringify(producto), this.httpOptions)
+    console.log(producto);
+    return this.httpClient.put<Producto>(this.apiURL +'update/aumen',JSON.stringify(producto), this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
   }
   disminuir(producto: Producto): Observable<Producto> {
-    return this.httpClient.post<Producto>(this.apiURL +'disminuir', this.httpOptions)
+    console.log(producto);
+    return this.httpClient.put<Producto>(this.apiURL +'update/disminuir', producto, this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )

@@ -28,50 +28,36 @@
       <!-- Nombre Producto -->
       <div class="field required px-1">
         <label class="label-atr" for="nom">Nombre Producto</label>
-        <input class="text-input" formControlName="nom" id="nom" type="nom" placeholder="Manzana" />
-        <div *ngIf="f.nom.touched && f.nom.invalid" class="alert alert-danger">
-          <div *ngIf="f.nom.errors.required">Nombre es requerido.</div>
-          <div *ngIf="f.nom.errors.pattern">
-            El Nombre solo dede Contener Letras.
-          </div>
-        </div>
+        <input class="text-input" formControlName="nom" id="nom" type="text" placeholder="Manzana" />
       </div>
 
       <!-- Descripcion Producto -->
       <div class="field required px-1">
-        <label class="label-atr" for="des">Descripcion</label>
-        <input class="text-input" formControlName="des" id="des" type="text"
-          placeholder="Fruto proveniente del manzano" />
-        <div *ngIf="f.des.touched && f.des.invalid" class="alert alert-danger">
-          <div *ngIf="f.des.errors.required">Descripcion es requerida.</div>
-          <div *ngIf="f.des.errors.pattern">La Descripcion solo Contiene Letras.</div>
-        </div>
+        <label class="label-atr" for="desc">Descripcion</label>
+        <input class="text-input" formControlName="desc" id="desc" type="text" placeholder="Fruto Proveniente del Manzano"/>
       </div>
 
       <!-- Precio Producto -->
       <div class="field required px-1">
-        <label class="label-atr" for="pre">Precio Unitario</label>
-        <input class="text-input" formControlName="pre" id="pre" type="text" placeholder="250" />
-        <div *ngIf="f.pre.touched && f.pre.invalid" class="alert alert-danger">
-          <div *ngIf="f.pre.errors.required">Precio es requerido.</div>
-          <div *ngIf="f.pre.errors.pattern">
-            El Precio Unitario solo Contiene Numeros
-          </div>
-        </div>
+        <label class="label-atr" for="pre_uni">Precio Unitario</label>
+        <input class="text-input" formControlName="pre_uni" id="pre_uni" type="num" placeholder="₡250" />
+      </div>
+
+      <!-- Precio Producto -->
+      <div class="field required px-1">
+        <label class="label-atr" for="can">Cantidad</label>
+        <input class="text-input" formControlName="can" id="can" type="num" placeholder="20" />
       </div>
 
       <!-- Categoria Producto -->
       <div class="field required px-1">
         <label class="label-atr" for="cat">Categoria</label>
-        <input class="text-input" formControlName="cat" id="cat" type="text" placeholder="Fruta" />
-        <div *ngIf="f.cat.touched && f.cat.invalid" class="alert alert-danger">
-          <div *ngIf="f.cat.errors.required">Categoria es requerida.</div>
-        </div>
+        <input class="text-input" formControlName="cat" id="cat" type="text" placeholder="Frutas, Verdura, Especias" />
       </div>
 
       <!-- Boton de subida -->
       <div class="field-half required px-1">
-        <button class="button" type="submit" [disabled]="!form.valid">
+        <button class="button" type="submit">
           Agregar Producto
         </button>
       </div>
